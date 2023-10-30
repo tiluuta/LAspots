@@ -1,0 +1,30 @@
+.title-heading{
+
+}
+.subheading{
+    font-family:sans-serif;
+}
+.location-tag{
+    background-color:rgba(214, 188, 126, 50%);
+    border-radius:20px;
+    width:fit-content;
+    padding:12px 50px 10px 50px;
+    font-weight:600;
+    font-family:sans-serif;
+}
+.round-button{
+    border-radius:20px;
+    width:fit-content;
+    padding:12px 50px 10px 50px;
+    font-weight:800;
+    font-family:sans-serif;
+}
+.green{
+    background-color:#AFD3A4;
+}
+.brown{
+    background-color:#D6BC7E;
+}
+body{
+    background-color:#EFEADE;
+}
