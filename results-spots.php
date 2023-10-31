@@ -14,7 +14,7 @@ $mysql = new mysqli(
     $userid,
     $userpw,
     $db
-);
+); //
 
 if($mysql->connect_errno) {
     echo "db connection error : " . $mysql->connect_error;
