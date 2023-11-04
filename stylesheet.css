@@ -7,12 +7,34 @@
     font-style: normal;
     font-weight: normal;
 }
-.title-heading{
+body{
+    background-color:#EFEADE;
+    margin:0;
+}
+/* GENERAL */
+.center{
+    text-align:center;
+}
+.green{
+    background-color:#AFD3A4;
+}
+.brown{
+    background-color:#D6BC7E;
+}
+.logo{
+    background-image:url('assets/laspots-logo_bl.png');
+    background-size: 100% 100%;
+}
+/* TEXT */
+h1{
+    font-size:80px;
     font-family: 'Cigra-FREEDEMO', sans-serif;
     text-rendering: optimizeLegibility;
+    font-weight:400;
 }
-.subheading{
+p{
     font-family: 'DM Sans', sans-serif;
+    font-size:30px;
 }
 .location-tag{
     background-color:rgba(214, 188, 126, 50%);
@@ -23,35 +45,30 @@
     font-family:sans-serif;
 }
 .round-button{
+    font-size:100%;
     border-radius:20px;
     width:fit-content;
     padding:12px 50px 10px 50px;
     font-weight:800;
     font-family:sans-serif;
+    border: 0;
 }
-.green{
-    background-color:#AFD3A4;
-}
-.brown{
-    background-color:#D6BC7E;
-}
-body{
-    background-color:#EFEADE;
-}
-.logo{
-    background-image:url('assets/laspots-logo_bl.png');
-    background-size: 100% 100%;
-}
+/* NAVBAR */
 .navbar{
     width:100%;
     height:60px;
     display:flex;
     align-items:flex-end;
+    margin:10px 0px 20px 0px;
 }
 .navbar .logo{
     width: 50px;
     height: 50px;
     margin: 0px 60px 0px 60px;
+}
+.navbar .button{
+    font-family: 'DM Sans', sans-serif;
+    font-weight:bold;
 }
 .profile{
     border-radius:100%;
@@ -60,20 +77,20 @@ body{
     width:50px;
     height:50px;
 }
-.navbar .button{
-    font-family: 'DM Sans', sans-serif;
-    font-weight:bold;
-}
-/* ROWS AND COLUMNS */
+/* BOXES AND ROWS AND COLUMNS */
 .box{
     display:flex;
-    justify-content:space-around;
-}
-.row{
-
+    justify-content: space-between;
+    align-items:center;
+    gap:10%;
 }
 .column{
-
 }
-
+/* IMAGES */
+.frontpage-img{
+    border-top-right-radius: 5%;
+    border-bottom-right-radius: 5%;
+    width:100%;
+    flex-grow:1
+}
 
