@@ -10,25 +10,28 @@
     </head>
     <body>
         <div class="navbar">
-            <div class="logo">&nbsp;</div>
-            <a class="button">Search</a>
-            <div class="profile green">&nbsp;</div>
+            <a href="frontpage.html" class="logo">&nbsp;</a>
+            <a href="search-spots.php">Search</a>
+            <a href="login.php" class="profile green">&nbsp;</a>
         </div>
         <div class="row">
-            <div class="item" style="width:35%;position:relative;">
+
+            <!--- EDIT ID="spotlight" to change to random spot --->
+            <div id="spotlight" class="item" style="width:34.5%;position:relative;">
                 <img class="frontpage-img" src="Assets/LIES479-046.jpg">
-                <button class="location-tag">&#128205; The Wallflower, Venice</button>
+               <a class="location-tag" href="detail-spots.php">&#128205; The Wallflower, Venice</a>
             </div>
+
             <div class="item" style="width:65%;">
                 <h1>LA Spots</h1>
-                <h4>Experience the city of angels differently.<br>
-                    Find your favorite hidden gems that won’t <br>pop up in a simple internet search.</h4>
+                <h4 style="width:60%;">Experience the city of angels differently.
+                    Find your favorite hidden gems that won’t pop up in a simple internet search.</h4>
                 <div>
-                    <button class="brown round-button">Find your spot</button>
+                    <button class="brown round-button"><a href="search-spots.php">Find your spot</a></button>
                 </div>
                 <br>
                 <div>
-                    <button class="green round-button">I'm feeling lucky</button>
+                    <button class="green round-button"><a href="random-spots.php">I'm feeling lucky</a></button>
                 </div>
 
             </div>
