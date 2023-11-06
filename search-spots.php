@@ -1,7 +1,9 @@
+
+
 <?php
 $host = "webdev.iyaserver.com";
 $userid = "sandmanl";
-$userpw = "*PASSWORD*";
+$userpw = "Ace-sweden-sonority89!";
 $db = "sandmanl_schedule";
 
 $mysql = new mysqli(
@@ -16,33 +18,88 @@ if($mysql->connect_errno) {
     exit();
 }
 ?>
+<link rel="stylesheet" href="stylesheet.css">
+<html>
+<header>
+    <title>Find Your Spot!</title>
+</header>
+<body>
 
-<form action="results-spots.php">
-    <strong>Name of Spot</strong><input type="text" name="name">
-    <strong>Address</strong><input type="text" name="address">
-    <br>
-    <strong>Type of Spot</strong><select name="type">
-        <option value="ALL">Select a type</option>
-        <?php
 
-        $sql = "SELECT * FROM types";
+<div>
+    <form class = "formcontainer" align="center" action="results-spots.php">
+        <div class="formtitles">Name of spot</div><input type="text" name="name" placeholder="name of spot">
+        <br><br>
+        <div class="formtitles">Address</div><input type="text" name="address" placeholder="address">
+        <br><br>
+        <div class="formtitles">Type of Spot</div>
+        <br>
+        <select name="type">
+            <option value="ALL">All</option>
+            <?php
 
-        $results = $mysql->query($sql);
+            $sql = "SELECT * FROM types";
 
-        if(!$results) {
-            echo "SQL error: ". $mysql->error;
-            exit();
-        }
+            $results = $mysql->query($sql);
 
-        while($currentrow = $results->fetch_assoc()) {
-            echo "<option>" . $currentrow['type'] . "</option>";
-        }
-        ?>
-    </select>
-    <br>
-    <strong>Max Price/Cost of Admission</strong><input type="number" name="max-price">
-    <br>
-    <strong>Min Price/Cost of Admission</strong><input type="number" name="min-price">
-    <br><br>
-    <input type="submit" value="Submit Search">
-</form>
+            if(!$results) {
+                echo "SQL error: ". $mysql->error;
+                exit();
+            }
+
+            while($currentrow = $results->fetch_assoc()) {
+                echo "<option>" . $currentrow['type'] . "</option>";
+            }
+            ?>
+        </select>
+        <br>
+        <div class="formtitles">Interest</div>
+        <br>
+        <select name="interest">
+            <option value="ALL">All</option>
+            <?php
+
+            $sql = "SELECT * FROM interests";
+
+            $results = $mysql->query($sql);
+
+            if(!$results) {
+                echo "SQL error: ". $mysql->error;
+                exit();
+            }
+
+            while($currentrow = $results->fetch_assoc()) {
+                echo "<option>" . $currentrow['interest'] . "</option>";
+            }
+            ?>
+        </select>
+        <br><br>
+        <div class="formtitles">Price level</div>
+        <br>
+        <select name="price">
+            <option value="ALL">All</option>
+            <?php
+
+            $sql = "SELECT * FROM prices";
+
+            $results = $mysql->query($sql);
+
+            if(!$results) {
+                echo "SQL error: ". $mysql->error;
+                exit();
+            }
+
+            while($currentrow = $results->fetch_assoc()) {
+                echo "<option>" . $currentrow['price'] . "</option>";
+            }
+            ?>
+        </select>
+        <br><br>
+        <input type="submit" value="Submit Search" style="background-color: #AFD3A4">
+    </form>
+</div>
+
+
+
+</body>
+</html>
