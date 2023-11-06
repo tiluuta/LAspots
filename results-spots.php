@@ -31,8 +31,11 @@ if(!empty($_REQUEST['address'])) {
 if($_REQUEST['type'] != "ALL") {
     $sql .=		" AND type = '" . $_REQUEST["type"] . "'";
 }
+<<<<<<< Updated upstream
     $sql .= " AND price < '" . $_REQUEST["max_price"] . "'";
     $sql .= " AND price > '" . $_REQUEST["min_price"] . "'\n";
+=======
+>>>>>>> Stashed changes
 
 $results = $mysql->query($sql);
 
