@@ -10,11 +10,15 @@
 body{
     background-color:#EFEADE;
     margin:0;
+    font-family: 'DM Sans', sans-serif;
+}
+a{
+    font-weight:800;
+    font-family: 'DM Sans', sans-serif;
+    color:black;
+    text-decoration:none;
 }
 /* GENERAL */
-.center{
-    text-align:center;
-}
 .green{
     background-color:#AFD3A4;
 }
@@ -25,33 +29,44 @@ body{
     background-image:url('assets/laspots-logo_bl.png');
     background-size: 100% 100%;
 }
+button{
+    border:0;
+    padding:12px 50px 10px 50px;
+}
 /* TEXT */
 h1{
-    font-size:80px;
+    font-size:110px;
     font-family: 'Cigra-FREEDEMO', sans-serif;
     text-rendering: optimizeLegibility;
     font-weight:400;
+    color:#4D2C28;
+    margin:0;
 }
-p{
+h4{
     font-family: 'DM Sans', sans-serif;
-    font-size:30px;
+    font-weight:400;
+    font-size:27px;
+    margin-top:0;
+    margin-bottom:5%;
+    line-height:50px;
 }
 .location-tag{
     background-color:rgba(214, 188, 126, 50%);
     border-radius:20px;
     width:fit-content;
-    padding:12px 50px 10px 50px;
     font-weight:600;
-    font-family:sans-serif;
+    float:right;
+    font-family: 'DM Sans', sans-serif;
+    position:absolute;
+    bottom:10px;
+    right:20px;
+    padding:12px 20px 10px 20px;
 }
 .round-button{
     font-size:100%;
     border-radius:20px;
     width:fit-content;
-    padding:12px 50px 10px 50px;
-    font-weight:800;
-    font-family:sans-serif;
-    border: 0;
+    min-width:250px;
 }
 /* NAVBAR */
 .navbar{
@@ -78,13 +93,13 @@ p{
     height:50px;
 }
 /* BOXES AND ROWS AND COLUMNS */
-.box{
+.row{
     display:flex;
     justify-content: space-between;
     align-items:center;
     gap:10%;
 }
-.column{
+.item{
 }
 /* IMAGES */
 .frontpage-img{

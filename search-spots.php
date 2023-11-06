@@ -6,6 +6,7 @@ $userid = "sandmanl";
 $userpw = "Ace-sweden-sonority89!";
 $db = "sandmanl_la_spots";
 
+
 $mysql = new mysqli(
     $host,
     $userid,

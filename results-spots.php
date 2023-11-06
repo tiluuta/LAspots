@@ -1,3 +1,11 @@
+
+<link rel="stylesheet" href="stylesheet.css">
+<html>
+<header>
+    <title>LA Spots!</title>
+</header>
+<body>
+
 <?php
 
 if(empty($_REQUEST['type'])) {
@@ -14,7 +22,7 @@ $mysql = new mysqli(
     $userid,
     $userpw,
     $db
-);
+); //
 
 if($mysql->connect_errno) {
     echo "db connection error : " . $mysql->connect_error;
@@ -31,11 +39,6 @@ if(!empty($_REQUEST['address'])) {
 if($_REQUEST['type'] != "ALL") {
     $sql .=		" AND type = '" . $_REQUEST["type"] . "'";
 }
-<<<<<<< Updated upstream
-    $sql .= " AND price < '" . $_REQUEST["max_price"] . "'";
-    $sql .= " AND price > '" . $_REQUEST["min_price"] . "'\n";
-=======
->>>>>>> Stashed changes
 
 $results = $mysql->query($sql);
 
@@ -52,7 +55,7 @@ echo "<br><br>";
 
 while($currentrow = $results->fetch_assoc()) {
     echo "<img alt='" . $currentrow['name'] . "' src='" . $currentrow['photo'] . "' width=100px> " .
-    "<strong><a href='details-spots.php?id=" . $currentrow['spot_id'] . "'" .
+        "<strong><a href='details-spots.php?id=" . $currentrow['spot_id'] . "'" .
         $currentrow['name'] . "</strong></a>" .
         $currentrow['address'] . "<em>" .
         $currentrow['type'] . "</em>" .
@@ -60,3 +63,7 @@ while($currentrow = $results->fetch_assoc()) {
 }
 
 ?>
+
+</body>
+</html>
+
