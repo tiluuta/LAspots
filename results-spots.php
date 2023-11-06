@@ -6,8 +6,8 @@ if(empty($_REQUEST['type'])) {
 
 $host = "webdev.iyaserver.com";
 $userid = "sandmanl";
-$userpw = "*PASSWORD*";
-$db = "sandmanl_schedule";
+$userpw = "Ace-sweden-sonority89!";
+$db = "sandmanl_la_spots";
 
 $mysql = new mysqli(
     $host,
