@@ -14,8 +14,8 @@ if(empty($_REQUEST['type'])) {
 
 $host = "webdev.iyaserver.com";
 $userid = "sandmanl";
-$userpw = "*PASSWORD*";
-$db = "sandmanl_schedule";
+$userpw = "Ace-sweden-sonority89!";
+$db = "sandmanl_la_spots";
 
 $mysql = new mysqli(
     $host,
@@ -39,8 +39,6 @@ if(!empty($_REQUEST['address'])) {
 if($_REQUEST['type'] != "ALL") {
     $sql .=		" AND type = '" . $_REQUEST["type"] . "'";
 }
-$sql .= " AND price < '" . $_REQUEST["max_price"] . "'";
-$sql .= " AND price > '" . $_REQUEST["min_price"] . "'\n";
 
 $results = $mysql->query($sql);
 

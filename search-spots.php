@@ -4,7 +4,8 @@
 $host = "webdev.iyaserver.com";
 $userid = "sandmanl";
 $userpw = "Ace-sweden-sonority89!";
-$db = "sandmanl_schedule";
+$db = "sandmanl_la_spots";
+
 
 $mysql = new mysqli(
     $host,
@@ -27,6 +28,7 @@ if($mysql->connect_errno) {
 
 
 <div>
+    <h1>SEARCH</h1>
     <form class = "formcontainer" align="center" action="results-spots.php">
         <div class="formtitles">Name of spot</div><input type="text" name="name" placeholder="name of spot">
         <br><br>
@@ -95,7 +97,7 @@ if($mysql->connect_errno) {
             ?>
         </select>
         <br><br>
-        <input type="submit" value="Submit Search" style="background-color: #AFD3A4">
+        <button type="submit" class="round-button green">Submit Search</button>
     </form>
 </div>
 
