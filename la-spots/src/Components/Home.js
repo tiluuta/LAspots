@@ -1,11 +1,10 @@
+import {Outlet, Link} from "react-router-dom";
+
 const Home = () => {
     return <html>
         <head>
             <title>LA Spots</title>
                 <meta charSet="UTF-8"></meta>
-                    <link rel="preconnect" href="https://fonts.googleapis.com"></link>
-                    <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin></link>
-                    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet"></link>
         </head>
         <body>
         <div className="row">
@@ -19,7 +18,7 @@ const Home = () => {
                 <h4 style={{width:'60%'}}>Experience the city of angels differently.
                     Find your favorite hidden gems that won’t pop up in a simple internet search.</h4>
                 <div>
-                    <button className="tan round-button"><a href="../PHP-files/search-spots.php">Find your spot</a></button>
+                    <button className="tan round-button"><Link to="/search">Find your spot</Link></button>
                 </div>
                 <br></br>
                     <div>

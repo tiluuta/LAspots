@@ -16,7 +16,7 @@ function App() {
   return (
       <BrowserRouter>
           <Routes>
-              <Route path="/" element={<Template />}>
+              <Route path="/" element={<Template></Template>}>
                   <Route index element={<Home></Home>} />
                   <Route path={'/search'} element={<Search></Search>} />
               </Route>
