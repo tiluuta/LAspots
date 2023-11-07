@@ -21,11 +21,16 @@ if($mysql->connect_errno) {
 ?>
 <link rel="stylesheet" href="stylesheet.css">
 <html>
-<header>
+<head>
     <title>Find Your Spot!</title>
-</header>
+    <link rel="icon" type="image/x-icon" href="Assets/favicon.ico">
+</head>
 <body>
-
+<div class="navbar">
+    <a href="frontpage.html" class="logo">&nbsp;</a>
+    <a href="search-spots.php">Search</a>
+    <a href="login.php" class="profile green">&nbsp;</a>
+</div>
 
 <div>
     <h2 style="text-align:center;">find your hidden gem...</h2>
