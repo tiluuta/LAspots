@@ -30,14 +30,13 @@ if($mysql->connect_errno) {
 <div>
     <h2 style="text-align:center;">find your hidden gem...</h2>
     <br><br>
-    <form class = "formcontainer" align="center" action="results-spots.php">
-        <br><div class="formtitles">Name of spot</div><input type="text" name="name" placeholder="name of spot">
+    <form class = "formcontainer" style="text-align:center" action="results-spots.php">
+        <br><div class="formtitles">Name of spot</div><input type="text" name="name" placeholder="name of spot" class="round-button">
         <br><br>
-        <div class="formtitles">Address</div><input type="text" name="address" placeholder="address">
+        <div class="formtitles">Address</div><input type="text" name="address" placeholder="address" class="round-button">
         <br><br>
         <div class="formtitles">Type of Spot</div>
-        <br>
-        <select name="type">
+        <select name="type" class="user-select round-button">
             <option value="ALL">All</option>
             <?php
 
@@ -57,8 +56,7 @@ if($mysql->connect_errno) {
         </select>
         <br><br>
         <div class="formtitles">Interest</div>
-        <br>
-        <select name="interest">
+        <select name="interest" class="user-select round-button">
             <option value="ALL">All</option>
             <?php
 
@@ -78,8 +76,7 @@ if($mysql->connect_errno) {
         </select>
         <br><br>
         <div class="formtitles">Price level</div>
-        <br>
-        <select name="price">
+        <select name="price" class="user-select round-button">
             <option value="ALL">All</option>
             <?php
 
@@ -100,7 +97,7 @@ if($mysql->connect_errno) {
         </select>
         <br><br>
 
-        <button type="submit" class="round-button green">Submit Search</button>
+        <button type="submit" class="round-button brown">Submit Search</button>
 
 <!--        <input method="POST" type="submit" value="Submit Search" style="background-color: #AFD3A4">-->
 

@@ -1,9 +1,9 @@
-
-<link rel="stylesheet" href="stylesheet.css">
 <html>
-<header>
+<head>
     <title>LA Spots!</title>
-</header>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="stylesheet.css">
+</head>
 <body>
 
 <?php
@@ -84,11 +84,13 @@ echo "<br><br>";
             <div class="image" style="background-image: url('<?php echo $currentrow['photo_url']; ?>')"></div>
 
             <div class="details">
+                <div class="overlay">
                 <h3><?php echo $currentrow['name']; ?></h3>
-                <p><?php echo $currentrow['address']; ?></p>
+                <p class="address"><?php echo $currentrow['address']; ?></p>
                 <p><em><?php echo $currentrow['type']; ?></em></p>
                 <p><?php echo $currentrow['interest']; ?></p>
                 <p><?php echo $currentrow['price']; ?></p>
+                </div>
             </div>
 
         </div>

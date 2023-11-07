@@ -13,11 +13,7 @@ tan: #D6BC7E
 beige: #EFEADE
 */
 
-/*.title-heading{*/
-
-/*}*/
 html{
-    /*font-family:'Cigra-FREEDEMO';*/
     padding:4%;
 }
 body{
@@ -32,21 +28,28 @@ a{
     color:black;
     text-decoration:none;
 }
+button{
+    font-weight:800;
+    font-family: 'DM Sans', sans-serif;
+    border:0;
+}
 /* GENERAL */
 .green{
     background-color:#AFD3A4;
 }
 .brown{
+    background-color:#4D2C28;
+    color:#EFEADE;
+}
+.tan{
     background-color:#D6BC7E;
 }
-.logo{
-    background-image:url('assets/laspots-logo_bl.png');
-    background-size: 100% 100%;
+.beige{
+    background-color:#EFEADE;
 }
-
-button{
-    border:0;
-    padding:12px 50px 10px 50px;
+.logo{
+    background-image:url('Assets/laspots-logo_bl.png');
+    background-size: 100% 100%;
 }
 /* TEXT */
 h1{
@@ -82,6 +85,7 @@ h4{
     border-radius:20px;
     width:fit-content;
     min-width:250px;
+    padding:12px 50px 10px 50px;
 }
 /* NAVBAR */
 .navbar{
@@ -123,7 +127,14 @@ h4{
     width:100%;
     flex-grow:1
 }
-
+.user-select{
+    border: 3px #4D2C28;
+    width: 200px;
+    padding:6px;
+    text-align:center;
+    color: #4D2C28;
+    margin:10px;
+}
 
 input[type=button], input[type=submit]{
     border-radius: 25px;
@@ -154,13 +165,6 @@ input[placeholder]{
 .formtitles{
     text-align: center;
 }
-select{
-    padding:2px;
-    margin:10px;
-    text-align: center;
-    border-radius:25px;
-
-}
 
 /*IMAGE GALLERY CSS:*/
 
@@ -173,38 +177,50 @@ select{
     flex: 1 0 250px;
     margin: 10px;
     position: relative;
+    min-height:300px;
 }
-
 .gallery-item:hover .image {
-    box-shadow: 0 0 20px 10px rgba(0,0,0,0.3);
+    box-shadow: 0 0 20px 10px rgba(77,44,40,0.3);
     transform: scale(1.05);
 }
-
 .image {
-    height: 250px;
+    height: 400px;
     background-size: cover;
     background-position: center;
-    /*opacity: 0.8; */
-    background: rgba(255,0,0,0.9);
+    background-color: rgba(0,0,0,0.9);
     border-radius: 10px;
+    background-repeat: no-repeat;
     transition: box-shadow 0.3s; /* Smooth transition */
     transition: all 0.3s;
 }
-
+.address{
+    line-height:20px;
+    opacity:70%;
+}
+.overlay{
+    background-color:rgba(0,0,0,0.2);
+}
 .details {
     position: absolute;
     top: 0;
-    left: 0;
+    left:0;
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
     color: #fff;
-    padding:12px;
-    /*text-align: center; */
+    text-align: center;
     text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
+}
+.details:hover{
+    border-radius:10px;
+    background-color:rgba(0,0,0,0.4);
+    transform: scale(1.05);
+    transition: box-shadow 0.3s; /* Smooth transition */
+    transition: all 0.25s;
+    transition-timing-function: ease-out;
+    .overlay{
+        background-color:rgba(0,0,0,0);
+    }
 }
