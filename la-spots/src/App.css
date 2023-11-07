@@ -1,0 +1,226 @@
+@font-face {
+  font-family: 'Cigra-FREEDEMO';
+  src: url('Assets/Cigra Free Demo.eot'); /* IE9 Compat Modes */
+  src: url('Assets/Cigra Free Demo.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('Assets/Cigra Free Demo.woff') format('woff'), /* Modern Browsers */ url('Assets/Cigra Free Demo.ttf') format('truetype'); /* Safari, Android, iOS */
+  font-style: normal;
+  font-weight: normal;
+}
+/*
+COLOR CODES:
+mint green: #AFD3A4
+brown: #4D2C28
+tan: #D6BC7E
+beige: #EFEADE
+*/
+
+.margins{
+  padding:4%;
+}
+body{
+  background-color:#EFEADE;
+  margin:0;
+  font-family: 'DM Sans', sans-serif;
+  color: #4D2C28;
+}
+a{
+  font-weight:800;
+  font-family: 'DM Sans', sans-serif;
+  color:black;
+  text-decoration:none;
+}
+button{
+  font-weight:800;
+  font-family: 'DM Sans', sans-serif;
+  border:0;
+}
+/* GENERAL */
+.green{
+  background-color:#AFD3A4;
+}
+.brown{
+  background-color:#4D2C28;
+  color:#EFEADE;
+}
+.tan{
+  background-color:#D6BC7E;
+}
+.beige{
+  background-color:#EFEADE;
+}
+.logo{
+  background-image:url('Assets/laspots-logo_bl.png');
+  background-size: 100% 100%;
+}
+/* TEXT */
+h1{
+  font-size:110px;
+  font-family: 'Cigra-FREEDEMO', sans-serif;
+  text-rendering: optimizeLegibility;
+  font-weight:400;
+  color:#4D2C28;
+  margin:0;
+}
+h4{
+  font-family: 'DM Sans', sans-serif;
+  font-weight:400;
+  font-size:27px;
+  margin-top:0;
+  margin-bottom:5%;
+  line-height:50px;
+}
+.location-tag{
+  background-color:rgba(214, 188, 126, 50%);
+  border-radius:20px;
+  width:fit-content;
+  font-weight:600;
+  float:right;
+  font-family: 'DM Sans', sans-serif;
+  position:absolute;
+  bottom:10px;
+  right:20px;
+  padding:12px 20px 10px 20px;
+}
+.round-button{
+  font-size:100%;
+  border-radius:20px;
+  width:fit-content;
+  min-width:250px;
+  padding:12px 50px 10px 50px;
+}
+/* NAVBAR */
+.navbar{
+  width:100%;
+  height:60px;
+  display:flex;
+  align-items:flex-end;
+  margin:10px 0px 20px 0px;
+}
+.navbar .logo{
+  width: 50px;
+  height: 50px;
+  margin: 0px 60px 0px 60px;
+}
+.navbar .button{
+  font-family: 'DM Sans', sans-serif;
+  font-weight:bold;
+}
+.profile{
+  border-radius:100%;
+  margin-left:auto;
+  margin-right:50px;
+  width:50px;
+  height:50px;
+}
+/* BOXES AND ROWS AND COLUMNS */
+.row{
+  display:flex;
+  justify-content: space-between;
+  align-items:center;
+  gap:10%;
+}
+.item{
+}
+/* IMAGES */
+.frontpage-img{
+  border-top-right-radius: 5%;
+  border-bottom-right-radius: 5%;
+  width:100%;
+  flex-grow:1
+}
+.user-select{
+  border: 3px #4D2C28;
+  width: 200px;
+  padding:6px;
+  text-align:center;
+  color: #4D2C28;
+  margin:10px;
+}
+
+input[type=button], input[type=submit]{
+  border-radius: 25px;
+  width:fit-content;
+  padding:10px;
+  margin:5%;
+  font-weight:800;
+  font-family:sans-serif;
+  text-align:center;
+  color: #4D2C28;
+}
+input[placeholder]{
+  color: #4D2C28;
+  border-radius:25px;
+  border-color: #4D2C28;
+  padding:5px;
+  margin:10px;
+  text-align: center;
+}
+.formcontainer{
+  /*margin-top: 5%;*/
+  background-color: #D6BC7E;
+  width: 400px;
+  margin: auto;
+  border-radius: 7%;
+  padding:15px;
+}
+.formtitles{
+  text-align: center;
+}
+
+/*IMAGE GALLERY CSS:*/
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.gallery-item {
+  flex: 1 0 250px;
+  margin: 10px;
+  position: relative;
+  min-height:300px;
+}
+.gallery-item:hover .image {
+  box-shadow: 0 0 20px 10px rgba(77,44,40,0.3);
+  transform: scale(1.05);
+}
+.image {
+  height: 400px;
+  background-size: cover;
+  background-position: center;
+  background-color: rgba(0,0,0,0.9);
+  border-radius: 10px;
+  background-repeat: no-repeat;
+  transition: box-shadow 0.3s; /* Smooth transition */
+  transition: all 0.3s;
+}
+.address{
+  line-height:20px;
+  opacity:70%;
+}
+.overlay{
+  background-color:rgba(0,0,0,0.2);
+}
+.details {
+  position: absolute;
+  top: 0;
+  left:0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #fff;
+  text-align: center;
+  text-overflow: ellipsis;
+}
+.details:hover{
+  border-radius:10px;
+  background-color:rgba(0,0,0,0.4);
+  transform: scale(1.05);
+  transition: box-shadow 0.3s; /* Smooth transition */
+  transition: all 0.25s;
+  transition-timing-function: ease-out;
+  .overlay{
+    background-color:rgba(0,0,0,0);
+  }
+}

@@ -1,7 +1,7 @@
 @font-face {
     font-family: 'Cigra-FREEDEMO';
-    src: url('Assets/Cigra Free Demo.eot'); /* IE9 Compat Modes */
-    src: url('Assets/Cigra Free Demo.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('Assets/Cigra Free Demo.woff') format('woff'), /* Modern Browsers */ url('Assets/Cigra Free Demo.ttf') format('truetype'); /* Safari, Android, iOS */
+    src: url('la-spots/src/Assets/Cigra Free Demo.eot'); /* IE9 Compat Modes */
+    src: url('la-spots/src/Assets/Cigra Free Demo.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('la-spots/src/Assets/Cigra Free Demo.woff') format('woff'), /* Modern Browsers */ url('la-spots/src/Assets/Cigra Free Demo.ttf') format('truetype'); /* Safari, Android, iOS */
     font-style: normal;
     font-weight: normal;
 }
@@ -48,7 +48,7 @@ button{
     background-color:#EFEADE;
 }
 .logo{
-    background-image:url('Assets/laspots-logo_bl.png');
+    background-image:url('la-spots/src/Assets/laspots-logo_bl.png');
     background-size: 100% 100%;
 }
 /* TEXT */

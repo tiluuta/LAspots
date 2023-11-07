@@ -19,15 +19,15 @@ if($mysql->connect_errno) {
     exit();
 }
 ?>
-<link rel="stylesheet" href="stylesheet.css">
+<link rel="stylesheet" href="../../../stylesheet.css">
 <html>
 <head>
     <title>Find Your Spot!</title>
-    <link rel="icon" type="image/x-icon" href="Assets/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="../../public/favicon.ico">
 </head>
 <body>
 <div class="navbar">
-    <a href="frontpage.html" class="logo">&nbsp;</a>
+    <a href="../../../frontpage.html" class="logo">&nbsp;</a>
     <a href="search-spots.php">Search</a>
     <a href="login.php" class="profile green">&nbsp;</a>
 </div>
@@ -35,7 +35,7 @@ if($mysql->connect_errno) {
 <div>
     <h2 style="text-align:center;">find your hidden gem...</h2>
     <br><br>
-    <form class = "formcontainer" style="text-align:center" action="results-spots.php">
+    <form class = "formcontainer" style="text-align:center" action="../../../results-spots.php">
         <br><div class="formtitles">Name of spot</div><input type="text" name="name" placeholder="name of spot" class="round-button">
         <br><br>
         <div class="formtitles">Address</div><input type="text" name="address" placeholder="address" class="round-button">

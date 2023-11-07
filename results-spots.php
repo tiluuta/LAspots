@@ -1,14 +1,14 @@
 <html>
 <head>
     <title>LA Spots!</title>
-    <link rel="icon" type="image/x-icon" href="Assets/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="la-spots/public/favicon.ico">
     <meta charset="UTF-8">
     <link rel="stylesheet" href="stylesheet.css">
 </head>
 <body>
 <div class="navbar">
     <a href="frontpage.html" class="logo">&nbsp;</a>
-    <a href="search-spots.php">Search</a>
+    <a href="la-spots/src/PHP files/search-spots.php">Search</a>
     <a href="login.php" class="profile green">&nbsp;</a>
 </div>
 <div class="margins">
