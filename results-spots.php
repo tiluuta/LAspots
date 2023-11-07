@@ -91,7 +91,7 @@ echo "<br><br>";
 
             <div class="details">
                 <div class="overlay">
-                <h3><?php echo $currentrow['name']; ?></h3>
+                <h3 class="location-tag">&#128205;<?php echo $currentrow['name']; ?></h3>
                 <p class="address"><?php echo $currentrow['address']; ?></p>
                 <p><em><?php echo $currentrow['type']; ?></em></p>
                 <p><?php echo $currentrow['interest']; ?></p>
