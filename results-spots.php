@@ -81,7 +81,7 @@ echo "<br><br>";
 
         <div class="gallery-item">
 
-            <div class="image" style="background-image: url('<?php echo $currentrow['photo']; ?>')"></div>
+            <div class="image" style="background-image: url('<?php echo $currentrow['photo_url']; ?>')"></div>
 
             <div class="details">
                 <h3><?php echo $currentrow['name']; ?></h3>
