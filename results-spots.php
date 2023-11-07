@@ -29,16 +29,26 @@ if($mysql->connect_errno) {
     exit();
 }
 
-$sql = 	"SELECT * FROM spots_view WHERE 1=1";
+$sql = 	"SELECT * FROM spot_view2 WHERE 1=1";
 if(!empty($_REQUEST['name'])) {
-    $sql .= " AND name ='" . $_REQUEST["name"] . "'";
+    $sql .= " AND name LIKE '%" . $_REQUEST["name"] . "%'";
 }
 if(!empty($_REQUEST['address'])) {
-    $sql .= " AND address ='" . $_REQUEST["address"] . "'";
+    $sql .= " AND address LIKE '%" . $_REQUEST["address"] . "%'";
 }
 if($_REQUEST['type'] != "ALL") {
     $sql .=		" AND type = '" . $_REQUEST["type"] . "'";
 }
+
+if($_REQUEST['interest'] != "ALL") {
+    $sql .=		" AND interest = '" . $_REQUEST["interest"] . "'";
+}
+if($_REQUEST['price'] != "ALL") {
+    $sql .=		" AND price = '" . $_REQUEST["price"] . "'";
+}
+//$sql .= " AND price < '" . $_REQUEST["max_price"] . "'";
+//$sql .= " AND price > '" . $_REQUEST["min_price"] . "'\n";
+
 
 $results = $mysql->query($sql);
 
@@ -53,16 +63,39 @@ echo "<em>Found <strong>" .
     "</strong> results.</em>";
 echo "<br><br>";
 
-while($currentrow = $results->fetch_assoc()) {
-    echo "<img alt='" . $currentrow['name'] . "' src='" . $currentrow['photo'] . "' width=100px> " .
-        "<strong><a href='details-spots.php?id=" . $currentrow['spot_id'] . "'" .
-        $currentrow['name'] . "</strong></a>" .
-        $currentrow['address'] . "<em>" .
-        $currentrow['type'] . "</em>" .
-        $currentrow['price'];
-}
+//while($currentrow = $results->fetch_assoc()) {
+//    echo "<img alt='" . $currentrow['name'] . "' src='" . $currentrow['photo'] . "' width=100px> " .
+//        "<strong><a href='details-spots.php?id=" . $currentrow['spot_id'] . "'" .
+//        $currentrow['name'] . "</strong></a>" .
+//        $currentrow['address'] . "<em>" .
+//        $currentrow['type'] . "</em>" .
+//        $currentrow['interest'] .
+//        $currentrow['price'];
+//}
 
 ?>
+
+<div class="gallery">
+
+    <?php while($currentrow = $results->fetch_assoc()): ?>
+
+        <div class="gallery-item">
+
+            <div class="image" style="background-image: url('<?php echo $currentrow['photo']; ?>')"></div>
+
+            <div class="details">
+                <h3><?php echo $currentrow['name']; ?></h3>
+                <p><?php echo $currentrow['address']; ?></p>
+                <p><em><?php echo $currentrow['type']; ?></em></p>
+                <p><?php echo $currentrow['interest']; ?></p>
+                <p><?php echo $currentrow['price']; ?></p>
+            </div>
+
+        </div>
+
+    <?php endwhile; ?>
+
+</div>
 
 </body>
 </html>
