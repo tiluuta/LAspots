@@ -6,11 +6,10 @@
     <link rel="stylesheet" href="stylesheet.css">
 </head>
 <body>
-<div class="navbar">
-    <a href="frontpage.html" class="logo">&nbsp;</a>
-    <a href="search-spots.php">Search</a>
-    <a href="login.php" class="profile green">&nbsp;</a>
-</div>
+<?php
+    include './navbar.php';
+    echo $navbar;
+?>
 <div class="margins">
 <?php
 

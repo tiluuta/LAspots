@@ -5,7 +5,7 @@
       <paths name="ACAD276">
         <serverdata>
           <mappings>
-            <mapping deploy="/public_html/LA_Spots/LAspots" local="$PROJECT_DIR$" web="/~tlutan/LA_Spots" />
+            <mapping deploy="/public_html/LA_Spots" local="$PROJECT_DIR$" web="/~tlutan/LA_Spots" />
             <mapping local="" />
           </mappings>
         </serverdata>
