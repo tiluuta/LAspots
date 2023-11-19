@@ -60,6 +60,14 @@ h1{
     color:#4D2C28;
     margin:0;
 }
+h2{
+    font-size:80px;
+    font-family: 'Cigra-FREEDEMO', sans-serif;
+    text-rendering: optimizeLegibility;
+    font-weight:400;
+    color:#4D2C28;
+    margin:0;
+}
 h4{
     font-family: 'DM Sans', sans-serif;
     font-weight:400;
@@ -110,6 +118,25 @@ h4{
     margin-right:50px;
     width:50px;
     height:50px;
+}
+/* LOGIN BOX */
+.login-box{
+    position:absolute;
+    top:25%;
+    right:2%;
+    z-index:10;
+    width:10%;
+    border:2px solid black;
+    border-radius:20px;
+    text-align:center;
+    padding:30px;
+    min-width:250px;
+    background-color: #EFEADE;
+}
+.login-box .input{
+    width:fit-content;
+    margin:auto;
+    text-align:left;
 }
 /* BOXES AND ROWS AND COLUMNS */
 .row{
