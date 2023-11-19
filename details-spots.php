@@ -33,75 +33,7 @@ echo $navbar;
         echo "db connection error : " . $mysql->connect_error;
         exit();
     }
-
-    $sql = 	"SELECT * FROM spot_view2 WHERE 1=1";
-    if(!empty($_REQUEST['name'])) {
-        $sql .= " AND name LIKE '%" . $_REQUEST["name"] . "%'";
-    }
-    if(!empty($_REQUEST['address'])) {
-        $sql .= " AND address LIKE '%" . $_REQUEST["address"] . "%'";
-    }
-    if($_REQUEST['type'] != "ALL") {
-        $sql .=		" AND type = '" . $_REQUEST["type"] . "'";
-    }
-
-    if($_REQUEST['interest'] != "ALL") {
-        $sql .=		" AND interest = '" . $_REQUEST["interest"] . "'";
-    }
-    if($_REQUEST['price'] != "ALL") {
-        $sql .=		" AND price = '" . $_REQUEST["price"] . "'";
-    }
-    //$sql .= " AND price < '" . $_REQUEST["max_price"] . "'";
-    //$sql .= " AND price > '" . $_REQUEST["min_price"] . "'\n";
-
-
-    $results = $mysql->query($sql);
-
-    if(!$results) {
-        echo "<hr>Your SQL:<br> " . $sql . "<br><br>";
-        echo "SQL Error: " . $mysql->error . "<hr>";
-        exit();
-    }
-
-    echo "<em>Found <strong>" .
-        $results->num_rows .
-        "</strong> results.</em>";
-    echo "<br><br>";
-
-    //while($currentrow = $results->fetch_assoc()) {
-    //    echo "<img alt='" . $currentrow['name'] . "' src='" . $currentrow['photo'] . "' width=100px> " .
-    //        "<strong><a href='details-spots.php?id=" . $currentrow['spot_id'] . "'" .
-    //        $currentrow['name'] . "</strong></a>" .
-    //        $currentrow['address'] . "<em>" .
-    //        $currentrow['type'] . "</em>" .
-    //        $currentrow['interest'] .
-    //        $currentrow['price'];
-    //}
-
     ?>
-
-    <div class="gallery">
-
-        <?php while($currentrow = $results->fetch_assoc()): ?>
-
-            <div class="gallery-item">
-
-                <div class="image" style="background-image: url('<?php echo $currentrow['photo_url']; ?>')"></div>
-
-                <div class="details">
-                    <div class="overlay">
-                        <h3 class="location-tag">&#128205;<?php echo $currentrow['name']; ?></h3>
-                        <p class="address"><?php echo $currentrow['address']; ?></p>
-                        <p><em><?php echo $currentrow['type']; ?></em></p>
-                        <p><?php echo $currentrow['interest']; ?></p>
-                        <p><?php echo $currentrow['price']; ?></p>
-                    </div>
-                </div>
-
-            </div>
-
-        <?php endwhile; ?>
-
     </div>
 </div>
 
