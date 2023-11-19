@@ -1,5 +1,6 @@
 <?php
     include './navbar.php';
+    include './login.php';
 ?>
 <html>
 <head>
@@ -14,6 +15,7 @@
 <body>
 <?php
     echo $navbar;
+    echo $login
 ?>
 <div class="row">
 
