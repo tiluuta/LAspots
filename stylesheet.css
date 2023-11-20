@@ -95,6 +95,13 @@ h4{
     min-width:250px;
     padding:12px 50px 10px 50px;
 }
+.small-button{
+    font-size:90%;
+    border-radius:20px;
+    width:fit-content;
+    min-width:100px;
+    padding:10px 8px 8px 8px;
+}
 /* NAVBAR */
 .navbar{
     width:100%;
@@ -121,10 +128,7 @@ h4{
 }
 /* LOGIN BOX */
 .login-box{
-    position:absolute;
-    top:25%;
-    right:2%;
-    z-index:10;
+    margin:auto;
     width:10%;
     border:2px solid black;
     border-radius:20px;
@@ -137,6 +141,12 @@ h4{
     width:fit-content;
     margin:auto;
     text-align:left;
+}
+.sidebar{
+    position:absolute;
+    top:25%;
+    right:2%;
+    z-index:10;
 }
 /* BOXES AND ROWS AND COLUMNS */
 .row{

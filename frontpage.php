@@ -15,7 +15,9 @@
 <body>
 <?php
     echo $navbar;
-    echo $login
+    if(empty(($_SESSION['username'])) || empty(($_SESSION['password']))){
+        echo '<div class="sidebar">', $login, '</div>';
+    }
 ?>
 <div class="row">
 
