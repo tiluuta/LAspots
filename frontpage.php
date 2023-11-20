@@ -1,6 +1,7 @@
 <?php
     include './navbar.php';
     include './login.php';
+    session_start();
 ?>
 <html>
 <head>

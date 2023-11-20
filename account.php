@@ -1,6 +1,10 @@
 <?php
-if(empty(($_REQUEST['username'])) || empty(($_REQUEST['password']))){
-    header("Location: frontpage.php");
+session_start();
+
+if(empty(($_SESSION['username']))) {
+    if (empty(($_REQUEST['username'])) || empty(($_REQUEST['password']))) {
+        header("Location: frontpage.php");
+    }
 }
 
 include './login.php';
@@ -43,20 +47,21 @@ if(!$results) {
 if (!empty($_REQUEST['username']) && !empty($_REQUEST['password'])) {
     while ($currentrow = $results->fetch_assoc()):
         if ($_REQUEST['username'] == $currentrow['username'] && $_REQUEST['password'] == $currentrow['password']) {
-
             $_SESSION['username'] = $currentrow['username'];
             $_SESSION['password'] = $currentrow['password'];
+        }
+    endwhile;
+}
+if (empty($_SESSION['username'])){
+    echo $errorpage;
+}
 
-            /* function showPass(){
-                echo '<script>
-                    document.getElementById("showPass-button").value = "Hide";
-                </script>';
-            }
-            if(array_key_exists('showPass', $_POST)) {
-                showPass();
-            }*/
+if(array_key_exists('logout', $_POST)) {
+    session_unset();
+}
 
-            $accountpage = '
+if (!empty($_SESSION['username'])){
+    $accountpage = '
                 <link rel="stylesheet" href="stylesheet.css"> 
                 <script>
                     function showPass(){
@@ -65,7 +70,7 @@ if (!empty($_REQUEST['username']) && !empty($_REQUEST['password'])) {
                        document.getElementById("hidePass-button").style.display = "inline";
                     }
                     function hidePass(){
-                        document.getElementById("hidePass-button").style.display = "none";
+                       document.getElementById("hidePass-button").style.display = "none";
                        document.getElementById("password").innerHTML = "*****";
                        document.getElementById("showPass-button").style.display = "inline";
                     }
@@ -74,23 +79,22 @@ if (!empty($_REQUEST['username']) && !empty($_REQUEST['password'])) {
                     <h2>Account Details</h2>
                     <div class="login-box" style="text-align:left;width:fit-content;padding:100px;">
                     <strong>Username: </strong>' . $_SESSION['username'] .
-                ' <br><br><div class="row" style="margin:auto;">
+        ' <br><br><div class="row" style="margin:auto;">
                     <strong>Password: </strong>
                         <div id="password">*****</div>
-                        <button id="showPass-button" onclick="showPass()" class="small-button brown">Show</button>
+                        <button id="showPass-button" onclick="showPass()" class="small-button tan">Show</button>
                         <button id="hidePass-button" onclick="hidePass()" class="small-button green" style="display:none;">Hide</button>
-                    </div>
+                    </div><br><br>
+                    <form method="post">
+                        <button type="submit" name="logout" id="logout-button" class="round-button brown">Logout</button>
+                    </form>
                 </div>
                 ';
-
-            echo $accountpage;
-        }
-    endwhile;
-    if (empty($_SESSION['username'])) {
-        echo $errorpage;
-        echo $login;
-    }
+    echo $accountpage;
+} else {
+    echo $login;
 }
+
 
 
 
