@@ -61,7 +61,7 @@ if($mysql->connect_errno) {
                 }
 
                 while($currentrow = $results->fetch_assoc()) {
-                    echo "<option>" . $currentrow['type'] . "</option>";
+                    echo "<option value='" . $currentrow['type_id'] . "'>" . $currentrow['type'] . "</option>";
                 }
                 ?>
             </select>
@@ -80,7 +80,7 @@ if($mysql->connect_errno) {
                 }
 
                 while($currentrow = $results->fetch_assoc()) {
-                    echo "<option>" . $currentrow['interest'] . "</option>";
+                    echo "<option value='" . $currentrow['interest_id'] . "'>" . $currentrow['interest'] . "</option>";
                 }
                 ?>
             </select>
@@ -99,7 +99,7 @@ if($mysql->connect_errno) {
                 }
 
                 while($currentrow = $results->fetch_assoc()) {
-                    echo "<option>" . $currentrow['price'] . "</option>";
+                    echo "<option value='" . $currentrow['price_id'] . "'>" . $currentrow['price'] . "</option>";
                 }
                 ?>
 
