@@ -1,7 +1,7 @@
 <?php
 
 if(empty($_REQUEST["id"])) {
-    echo '<a href="http://samaksha.webdev.iyaserver.com/acad276/LA_Spots/Untitled/admin-edit.php?id=">Please provide a valid record ID.</a>';
+    echo '<a href="search-spots-admin.php">Please provide a valid record ID.</a>';
     exit();
 }
 
@@ -26,11 +26,9 @@ if($mysql->connect_errno) {
 
 $sql = "SELECT * FROM spot_view2 WHERE spot_id =" . $_REQUEST["id"];
 
-echo $sql;
-
 $results = $mysql->query($sql);
 
-$sqlprice = "SELECT * from price";
+$sqlprice = "SELECT * from prices";
 $resultsprice = $mysql->query($sqlprice);
 
 $sqltype = "SELECT * from types";
@@ -38,51 +36,50 @@ $resultstype = $mysql->query($sqltype);
 
 $sqluser = "SELECT * from users";
 $resultsuser = $mysql->query($sqluser);
-echo "<hr>"
 
 ?>
 
-<form action ="admin-update.php">
+<form class="formcontainer" action="admin-update.php">
     <input type="hidden" name="id" value="<?php echo $_REQUEST["id"]; ?>">
 
     <?php $currentrow = $results->fetch_assoc();?>
 
-    <input type ="text" name="name" value="<?php echo $currentrow["name"];?>">
+    Name <input type ="text" name="name" value="<?php echo $currentrow["name"];?>"><br>
 
     <?php
     $currentrow["name"] . "<br>" ?>
-    <input type ="text" name="address" value="<?php echo $currentrow["address"];?>">
+    Address <input type ="text" name="address" value="<?php echo $currentrow["address"];?>"><br>
     <?php
     $currentrow["address"] . "<br>" ?>
 
-    <input type ="text" name="photo" value="<?php echo $currentrow["photo"];?>">
+    Photo <input type ="text" name="photo" value="<?php echo $currentrow["photo_url"];?>"><br>
     <?php
-    echo $currentrow["photo"] . "<br>" ?>
+    echo '<img width="50%" src="' . $currentrow["photo_url"] . '"><br>' ?>
 
-    <select name="price">
+    Price <select name="price">
         <?php
-        "<option value='" . $currentrow["price_id"] . "'>" . $currentrow["price"] . "</option>";
+        echo "<option value='" . $currentrow["price_id"] . "'>" . $currentrow["price"] . "</option>";
 
-        while($prices = $resultsclass->fetch_assoc()){
-            echo "<option value= '" . $prices["price_id"] . "'>" . $prices["price"] .
-                "</option>";
-        }
-        ?></select><br>
-    <select name="type">
+        while($prices = $resultsprice->fetch_assoc()):
+            echo "<option value= '" . $prices["price_id"] . "'>" . $prices["price"] . "</option>";
+        endwhile;
+        ?>
+    </select><br>
+    Type <select name="type">
         <?php
         echo "<option value='" . $currentrow["type_id"] . "'>" . $currentrow["type"] . "</option>";
 
         while ($types = $resultstype->fetch_assoc()) {
-            "<option value='" . $types["type_id"] . "'>" . $types["type"] . "</option>";
+            echo "<option value='" . $types["type_id"] . "'>" . $types["type"] . "</option>";
         }
         ?>
     </select><br>
-    <select name="users">
+    Users <select name="users">
         <?php
         echo "<option value='" . $currentrow["user_id"] . "'>" . $currentrow["user"] . "</option>";
 
         while ($users = $resultsuser->fetch_assoc()) {
-            echo "<option value='" . $users["user_id"] . "'>" . $users["user"] . "</option>";
+            echo "<option value='" . $users["user_id"] . "'>" . $users["username"] . "</option>";
         }
         ?>
     </select><br>
@@ -91,7 +88,7 @@ echo "<hr>"
 <!--        <option value="Ascending">Ascending</option>-->
 <!--        <option value="Descending">Descending</option>-->
 <!--    </select><br>-->
-    <input type="submit">
+    <button type="submit">Submit</button>
 </form>
 
 
