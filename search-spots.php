@@ -1,6 +1,12 @@
-
-
 <?php
+session_start();
+
+if(!empty($_SESSION['username'])) {
+    if ($_SESSION['username'] == 'admin' && $_SESSION['password'] == 'pw') {
+        header("Location: search-spots-admin.php");
+    }
+}
+
 $host = "webdev.iyaserver.com";
 $userid = "sandmanl";
 $userpw = "Ace-sweden-sonority89!";

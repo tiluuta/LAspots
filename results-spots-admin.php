@@ -1,3 +1,10 @@
+<?php
+session_start();
+
+    if($_SESSION['username'] != 'admin' && $_SESSION['password'] != 'pw') {
+        header("Location: search-spots.php");
+    }
+?>
 <html>
 <head>
     <title>LA Spots!</title>
