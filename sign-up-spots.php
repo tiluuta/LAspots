@@ -43,7 +43,7 @@ $signup = '<link rel="stylesheet" href="stylesheet.css">
         <button type="submit" class="round-button brown">Create Account</button>
     </form>';
 
-echo '<div class="sidebar" align="center">', $signup, '</div>';
+echo '<div>', $signup, '</div>';
 ?>
 
 </body>
