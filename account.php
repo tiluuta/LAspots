@@ -91,6 +91,29 @@ if (!empty($_SESSION['username'])){
                 </div>
                 ';
     echo $accountpage;
+
+    if ($_SESSION['username'] == 'admin' && $_SESSION['password'] == 'pw'){
+        $sqluser = "SELECT * from users";
+        $resultsuser = $mysql->query($sqluser);
+        $sqlspots = "SELECT * from spots";
+        $resultsspots = $mysql->query($sqlspots);
+
+        echo "<br><form>";
+        echo 'Edit User <select name="users">';
+        while ($users = $resultsuser->fetch_assoc()) {
+            echo "<option value='" . $users["user_id"] . "'>" . $users["username"] . "</option>";
+        }
+        echo '</select> <a class="small-button green" style="padding:10px 30px 8px 30px;">Add</a> <button type="submit" class="small-button tan">Edit</button> <button class="small-button brown">Delete</button></form>';
+
+        echo "<form action='admin-edit.php'>";
+        echo 'Edit a Spot <select name="id">';
+        while ($spots = $resultsspots->fetch_assoc()) {
+            echo "<option value='" . $spots["spot_id"] . "'>" . $spots["name"] . "</option>";
+        }
+        echo '</select> <a class="small-button green" style="padding:10px 30px 8px 30px;" href="upload-spots.php">Add</a> <button type="submit" class="small-button tan">Edit</button> <button class="small-button brown">Delete</button></form>';
+
+
+    }
 } else {
     echo $login;
 }

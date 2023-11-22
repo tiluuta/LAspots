@@ -75,16 +75,6 @@ $resultsuser = $mysql->query($sqluser);
         ?>
     </select><br>
 
-    <!-- Users <select name="users">
-        <?php
-        //echo "<option value='" . $currentrow["user_id"] . "'>" . $currentrow["user"] . "</option>";
-
-        //while ($users = $resultsuser->fetch_assoc()) {
-            //echo "<option value='" . $users["user_id"] . "'>" . $users["username"] . "</option>";
-        //}
-        ?>
-    </select><br>
-
 <!--    <label for="sortorder"></label>-->
 <!--    <select name="sortorder" id="sortorder">-->
 <!--        <option value="Ascending">Ascending</option>-->

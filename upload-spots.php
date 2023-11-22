@@ -1,5 +1,6 @@
-
 <?php
+session_start();
+
 $host = "webdev.iyaserver.com";
 $userid = "sandmanl";
 $userpw = "Ace-sweden-sonority89!";
