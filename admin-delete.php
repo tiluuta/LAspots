@@ -36,16 +36,16 @@ if($mysql->connect_errno) {
 $sql = "DELETE FROM spots
         WHERE spot_id = " . $_REQUEST["id"] . ";";
 
-//$results = $mysql->query($sql);
+$results = $mysql->query($sql);
 
-/*if(!$results) {
+if(!$results) {
     echo "<hr>Your SQL:<br> " . $sql . "<br><br>";
     echo "SQL Error: " . $mysql->error . "<hr>";
     exit();
-}*/
+}
 
 echo "SQL: " . $sql . "<hr>";
-echo "<hr>" . "The spot has (not yet) been deleted."
+echo "<hr>" . "The spot has been deleted."
 ?>
 
 
