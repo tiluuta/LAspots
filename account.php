@@ -110,8 +110,7 @@ if (!empty($_SESSION['username'])){
         while ($spots = $resultsspots->fetch_assoc()) {
             echo "<option value='" . $spots["spot_id"] . "'>" . $spots["name"] . "</option>";
         }
-        echo '</select> <a class="small-button green" style="padding:10px 30px 8px 30px;" href="upload-spots.php">Add</a> <button type="submit" class="small-button tan">Edit</button> <button class="small-button brown">Delete</button></form>';
-
+        echo '</select> <a class="small-button green" style="padding:10px 30px 8px 30px;" href="upload-spots.php">Add</a> <button type="submit" class="small-button tan">Edit</button> <a class="small-button brown" style="padding:12px 30px 10px 30px;" href="admin-delete.php">Delete</a></form>';
 
     }
 } else {

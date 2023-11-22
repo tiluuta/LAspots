@@ -103,6 +103,7 @@ echo "<br><br>";
                 <p><?php echo $currentrow['interest']; ?></p>
                 <p><?php echo $currentrow['price']; ?></p>
                 <a class="small-button beige" style="padding:12px 30px 10px 30px;" href='admin-edit.php?id=<?php echo$currentrow["spot_id"]?>'>Edit</a>
+                    <a class="small-button brown" style="padding:12px 30px 10px 30px;" href='admin-delete.php?id=<?php echo$currentrow["spot_id"]?>'>Delete</a>
                 </div>
             </div>
 
