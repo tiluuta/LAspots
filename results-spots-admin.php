@@ -95,7 +95,7 @@ echo "<br><br>";
 
             <div class="image" style="background-image: url('<?php echo $currentrow['photo_url']; ?>')"></div>
 
-            <div class="details">
+            <a class="details" href="details-spots.php?id=11">
                 <div class="overlay">
                 <h3 class="location-tag">&#128205;<?php echo $currentrow['name']; ?></h3>
                 <p class="address"><?php echo $currentrow['address']; ?></p>
@@ -105,7 +105,7 @@ echo "<br><br>";
                 <a class="small-button beige" style="padding:12px 30px 10px 30px;" href='admin-edit.php?id=<?php echo$currentrow["spot_id"]?>'>Edit</a>
                     <a class="small-button brown" style="padding:12px 30px 10px 30px;" href='admin-delete.php?id=<?php echo$currentrow["spot_id"]?>'>Delete</a>
                 </div>
-            </div>
+            </a>
 
         </div>
 

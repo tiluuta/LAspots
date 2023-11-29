@@ -88,7 +88,7 @@ echo "<br><br>";
 
             <div class="image" style="background-image: url('<?php echo $currentrow['photo_url']; ?>')"></div>
 
-            <div class="details">
+            <a class="details" href="details-spots.php?id=11">
                 <div class="overlay">
                 <h3 class="location-tag">&#128205;<?php echo $currentrow['name']; ?></h3>
                 <p class="address"><?php echo $currentrow['address']; ?></p>
@@ -96,7 +96,7 @@ echo "<br><br>";
                 <p><?php echo $currentrow['interest']; ?></p>
                 <p><?php echo $currentrow['price']; ?></p>
                 </div>
-            </div>
+            </a>
 
         </div>
 
