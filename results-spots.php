@@ -97,7 +97,7 @@ echo "<br><br>";
 
             <a class="details" href="details-spots.php?id=<?php echo $currentrow['spot_id']?>">
                 <div class="overlay">
-                <h3 class="location-tag">&#128205;<?php echo $currentrow['name']; ?></h3>
+                <h3 class="location-tag">&#128205;<?php echo utf8_decode($currentrow['name']); ?></h3>
                 <p class="address"><?php echo $currentrow['address']; ?></p>
                 <p><em><?php echo $currentrow['type']; ?></em></p>
                 <p><?php echo $currentrow['interest']; ?></p>

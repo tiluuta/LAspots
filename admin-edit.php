@@ -56,35 +56,23 @@ $resultsuser = $mysql->query($sqluser);
 
     Price <select name="price">
         <?php
-        echo "<option value='" . $currentrow["price_id"] . "'>" . $currentrow["price"] . "</option>";
-
         while($prices = $resultsprice->fetch_assoc()):
+            if($currentrow["price"] == $prices["price"]){
+                echo "<option value='" . $prices["price_id"] . "'>" . $currentrow["price"] . "</option>";
+            }
+
             echo "<option value= '" . $prices["price_id"] . "'>" . $prices["price"] . "</option>";
         endwhile;
         ?>
     </select><br>
     Type <select name="type">
-
-        while($prices = $resultsprice->fetch_assoc()){
-            echo "<option value= '" . $prices["price_id"] . "'>" . $prices["price"] .
-                "</option>";
-        }
-        ?></select><br>
-    <select name="type">
-
         <?php
-        echo "<option value='" . $currentrow["type_id"] . "'>" . $currentrow["type"] . "</option>";
-
         while ($types = $resultstype->fetch_assoc()) {
+            if($types["price"] == $currentrow["price"]){
+                echo "<option value='" . $types["type_id"] . "'>" . $currentrow["type"] . "</option>";
+            }
             echo "<option value='" . $types["type_id"] . "'>" . $types["type"] . "</option>";
         }
-        ?>
-    </select><br>
-        <?php
-        while ($users = $resultsuser->fetch_assoc()) {
-            echo "<option value='" . $users["user_id"] . "'>" . $users["user"] . "</option>";
-        }
-
         ?>
     </select><br>
 
