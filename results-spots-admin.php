@@ -1,3 +1,10 @@
+<?php
+session_start();
+
+    if($_SESSION['username'] != 'admin' && $_SESSION['password'] != 'pw') {
+        header("Location: search-spots.php");
+    }
+?>
 <html>
 <head>
     <title>LA Spots!</title>
@@ -27,7 +34,7 @@ $mysql = new mysqli(
     $userid,
     $userpw,
     $db
-); //
+);
 
 if($mysql->connect_errno) {
     echo "db connection error : " . $mysql->connect_error;
@@ -68,28 +75,11 @@ echo "<em>Found <strong>" .
     "</strong> results.</em>";
 echo "<br><br>";
 
-//while($currentrow = $results->fetch_assoc()) {
-//    echo "<img alt='" . $currentrow['name'] . "' src='" . $currentrow['photo'] . "' width=100px> " .
-//        "<strong><a href='details-spots.php?id=" . $currentrow['spot_id'] . "'" .
-//        $currentrow['name'] . "</strong></a>" .
-//        $currentrow['address'] . "<em>" .
-//        $currentrow['type'] . "</em>" .
-//        $currentrow['interest'] .
-//        $currentrow['price'];
-//}
-
 ?>
 
 <div class="gallery">
 
-    <?php
-
-    $start = 1;
-    $end = 10;
-    $counter = $start;
-    $results->data_seek($start-1); // this is for the paginated shit lol
-
-    while($currentrow = $results->fetch_assoc()): ?>
+    <?php while($currentrow = $results->fetch_assoc()): ?>
 
         <div class="gallery-item">
 
@@ -97,11 +87,13 @@ echo "<br><br>";
 
             <a class="details" href="details-spots.php?id=<?php echo $currentrow['spot_id']?>">
                 <div class="overlay">
-                <h3 class="location-tag">&#128205;<?php echo utf8_decode($currentrow['name']); ?></h3>
+                <h3 class="location-tag">&#128205;<?php echo $currentrow['name']; ?></h3>
                 <p class="address"><?php echo $currentrow['address']; ?></p>
                 <p><em><?php echo $currentrow['type']; ?></em></p>
                 <p><?php echo $currentrow['interest']; ?></p>
                 <p><?php echo $currentrow['price']; ?></p>
+                <a class="small-button beige" style="padding:12px 30px 10px 30px;" href='admin-edit.php?id=<?php echo$currentrow["spot_id"]?>'>Edit</a>
+                    <a class="small-button brown" style="padding:12px 30px 10px 30px;" href='admin-delete.php?id=<?php echo$currentrow["spot_id"]?>'>Delete</a>
                 </div>
             </a>
 

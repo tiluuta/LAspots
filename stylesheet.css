@@ -77,12 +77,14 @@ h4{
     line-height:50px;
 }
 .location-tag{
-    background-color:rgba(214, 188, 126, 50%);
+    background-color:rgba(214, 188, 126, 70%);
     border-radius:20px;
     width:fit-content;
+    max-width:70%;
     font-weight:600;
     float:right;
     font-family: 'DM Sans', sans-serif;
+    color:black;
     position:absolute;
     bottom:10px;
     right:20px;
@@ -125,6 +127,7 @@ h4{
     margin-right:50px;
     width:50px;
     height:50px;
+    background-image:url('https://i.pinimg.com/originals/57/00/c0/5700c04197ee9a4372a35ef16eb78f4e.png');
 }
 /* LOGIN BOX */
 .login-box{
@@ -165,12 +168,14 @@ h4{
     flex-grow:1
 }
 .user-select{
-    border: 3px #4D2C28;
-    width: 200px;
+    border: 2px solid #4D2C28;
+    width: fit-content;
     padding:6px;
     text-align:center;
     color: #4D2C28;
     margin:10px;
+    background-color:white;
+    font-size:smaller;
 }
 
 input[type=button], input[type=submit]{

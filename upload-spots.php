@@ -1,5 +1,6 @@
-
 <?php
+session_start();
+
 $host = "webdev.iyaserver.com";
 $userid = "sandmanl";
 $userpw = "Ace-sweden-sonority89!";
@@ -48,7 +49,7 @@ if($mysql->connect_errno) {
                 <input type="text" placeholder="Enter Description of Spot" name="spot_description" height="200px"<br><br><br></div>
 
             <div class="formtitles">Type of Spot<br></div>
-            <select name="spot_type" class="user-select round-button">
+            <select name="spot_type" class="round-button user-select">
                 <?php
 
                 $sql = "SELECT * FROM types";
@@ -61,7 +62,7 @@ if($mysql->connect_errno) {
                 }
 
                 while($currentrow = $results->fetch_assoc()) {
-                    echo "<option>" . $currentrow['type'] . "</option>";
+                    echo "<option value='" . $currentrow['type_id'] . "'>" . $currentrow['type'] . "</option>";
                 }
                 ?>
             </select>
@@ -80,7 +81,7 @@ if($mysql->connect_errno) {
                 }
 
                 while($currentrow = $results->fetch_assoc()) {
-                    echo "<option>" . $currentrow['interest'] . "</option>";
+                    echo "<option value='" . $currentrow['interest_id'] . "'>" . $currentrow['interest'] . "</option>";
                 }
                 ?>
             </select>
@@ -99,7 +100,7 @@ if($mysql->connect_errno) {
                 }
 
                 while($currentrow = $results->fetch_assoc()) {
-                    echo "<option>" . $currentrow['price'] . "</option>";
+                    echo "<option value='" . $currentrow['price_id'] . "'>" . $currentrow['price'] . "</option>";
                 }
                 ?>
 

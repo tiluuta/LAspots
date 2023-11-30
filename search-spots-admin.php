@@ -1,11 +1,9 @@
 <?php
 session_start();
 
-/*if(!empty($_SESSION['username'])) {
-    if ($_SESSION['username'] == 'admin' && $_SESSION['password'] == 'pw') {
-        header("Location: search-spots-admin.php");
-    }
-}*/
+if($_SESSION['username'] != 'admin' && $_SESSION['password'] != 'pw') {
+    header("Location: search-spots.php");
+}
 
 $host = "webdev.iyaserver.com";
 $userid = "sandmanl";
@@ -40,7 +38,7 @@ if($mysql->connect_errno) {
 <div>
     <h2 style="text-align:center;">find your hidden gem...</h2>
     <br><br>
-    <form class = "formcontainer" style="text-align:center" action="results-spots.php">
+    <form class = "formcontainer" style="text-align:center" action="results-spots-admin.php">
         <br><div class="formtitles">Name of spot</div><input type="text" name="name" placeholder="name of spot" class="round-button">
         <br><br>
         <div class="formtitles">Address</div><input type="text" name="address" placeholder="address" class="round-button">
