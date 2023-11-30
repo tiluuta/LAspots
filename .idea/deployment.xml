@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" autoUpload="Always" serverName="ACAD276" filePermissions="493" folderPermissions="493" remoteFilesAllowedToDisappearOnAutoupload="false">
+  <component name="PublishConfigData" autoUpload="Always" serverName="Acad276server" filePermissions="493" folderPermissions="493" remoteFilesAllowedToDisappearOnAutoupload="false" confirmBeforeUploading="false">
+    <option name="confirmBeforeUploading" value="false" />
     <serverData>
-      <paths name="ACAD276">
+      <paths name="Acad276server">
         <serverdata>
           <mappings>
-            <mapping deploy="/public_html/LA_Spots" local="$PROJECT_DIR$" web="/~tlutan/LA_Spots" />
-            <mapping local="" />
+            <mapping deploy="/public_html/LASpots/" local="$PROJECT_DIR$/.." web="/LASpots/" />
           </mappings>
         </serverdata>
       </paths>

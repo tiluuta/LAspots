@@ -5,7 +5,7 @@
 ?>
 <html>
 <head>
-    <title>LA Spots</title>
+    <title>Bruh LA Spots</title>
     <link rel="icon" type="image/x-icon" href="Assets/favicon.ico">
     <meta charset="UTF-8">
     <link rel="stylesheet" href="stylesheet.css">
