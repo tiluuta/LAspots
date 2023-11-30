@@ -168,12 +168,14 @@ h4{
     flex-grow:1
 }
 .user-select{
-    border: 3px #4D2C28;
-    width: 200px;
+    border: 2px solid #4D2C28;
+    width: fit-content;
     padding:6px;
     text-align:center;
     color: #4D2C28;
     margin:10px;
+    background-color:white;
+    font-size:smaller;
 }
 
 input[type=button], input[type=submit]{

@@ -49,7 +49,7 @@ if($mysql->connect_errno) {
                 <input type="text" placeholder="Enter Description of Spot" name="spot_description" height="200px"<br><br><br></div>
 
             <div class="formtitles">Type of Spot<br></div>
-            <select name="spot_type" class="user-select round-button">
+            <select name="spot_type" class="round-button user-select">
                 <?php
 
                 $sql = "SELECT * FROM types";

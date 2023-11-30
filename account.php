@@ -11,9 +11,13 @@ include './login.php';
 include './navbar.php';
 include './admin-frontpage.php';
 echo $navbar;
+    <title>My Account</title>
+    <link rel="icon" type="image/x-icon" href="Assets/favicon.ico">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="stylesheet.css">
+';
 
 $errorpage = '
-    <link rel="stylesheet" href="stylesheet.css">
     <div style="text-align:center;">
         <h4>Invalid Username or Password</h4>
     </div>
@@ -63,7 +67,6 @@ if(array_key_exists('logout', $_POST)) {
 
 if (!empty($_SESSION['username'])){
     $accountpage = '
-                <link rel="stylesheet" href="stylesheet.css"> 
                 <script>
                     function showPass(){
                        document.getElementById("showPass-button").style.display = "none";
