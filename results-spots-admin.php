@@ -95,7 +95,7 @@ echo "<br><br>";
 
             <div class="image" style="background-image: url('<?php echo $currentrow['photo_url']; ?>')"></div>
 
-            <a class="details" href="details-spots.php?id=11">
+            <a class="details" href="details-spots.php?id=<?php echo $currentrow['spot_id']?>">
                 <div class="overlay">
                 <h3 class="location-tag">&#128205;<?php echo $currentrow['name']; ?></h3>
                 <p class="address"><?php echo $currentrow['address']; ?></p>

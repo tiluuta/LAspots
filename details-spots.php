@@ -11,8 +11,11 @@
 
     <style>
         #map {
-            width: 100%;
-            height: 50vh;
+            width: 50%;
+            height: 30vh;
+            margin-left:auto;
+            margin-right:4%;
+            border-radius: 20px;
         }
         .ol-popup {
             position: absolute;
@@ -187,33 +190,34 @@ echo $navbar;
         </div>
     </div>
 
-    <?php
-    $url = 'https://geocode.maps.co/search?q='.$address;
+    <div style="position:absolute;">
 
-    $ch = curl_init();
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_URL, $url);
-    $result = curl_exec($ch);
-    curl_close($ch);
-
-    $data = json_decode($result, true); #decode string into obj
-    $dataPhp = array(); #set obj as array
-
-    if($data != null){
-        for($i = 0; $i < sizeof($data); $i++){
-            array_push($dataPhp, array("lat" => $data[$i]["lat"], "long" => $data[$i]["lon"], "name" => $data[$i]["display_name"]));
-        }
-    }
-    else{
-        echo '<h4>No geocodes found</h4>';
-    }
-
-    ?>
+    </div>
 
     <div id="map">
+            <?php
+            $url = 'https://geocode.maps.co/search?q='.$address;
+
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_URL, $url);
+            $result = curl_exec($ch);
+            curl_close($ch);
+
+            $data = json_decode($result, true); #decode string into obj
+            $dataPhp = array(); #set obj as array
+
+            if($data != null){
+                for($i = 0; $i < sizeof($data); $i++){
+                    array_push($dataPhp, array("lat" => $data[$i]["lat"], "long" => $data[$i]["lon"], "name" => $data[$i]["display_name"]));
+                }
+            }
+
+            ?>
         <script>
             var _coords = <?php echo json_encode($dataPhp); ?>;
             var map;
+
 
             function initMap() {
                 map = new ol.Map({
