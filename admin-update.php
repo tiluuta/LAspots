@@ -39,3 +39,4 @@ if(!$results) {
 echo "<hr>" . "The spot has been updated."
 ?>
 
+

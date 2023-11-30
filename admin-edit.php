@@ -15,7 +15,7 @@ $mysql = new mysqli(
     $userid,
     $userpw,
     $db
-); //
+);
 
 if($mysql->connect_errno) {
     echo "db connection error : " . $mysql->connect_error;
@@ -46,15 +46,13 @@ $resultsuser = $mysql->query($sqluser);
 
     Name <input type ="text" name="name" value="<?php echo $currentrow["name"];?>"><br>
 
-    <?php
-    $currentrow["name"] . "<br>" ?>
+    <?php $currentrow["name"] . "<br>" ?>
     Address <input type ="text" name="address" value="<?php echo $currentrow["address"];?>"><br>
-    <?php
-    $currentrow["address"] . "<br>" ?>
+
+    <?php $currentrow["address"] . "<br>" ?>
 
     Photo <input type ="text" name="photo" value="<?php echo $currentrow["photo_url"];?>"><br>
-    <?php
-    echo '<img width="50%" src="' . $currentrow["photo_url"] . '"><br>' ?>
+    <?php echo '<img width="50%" src="' . $currentrow["photo_url"] . '"><br>' ?>
 
     Price <select name="price">
         <?php
@@ -66,6 +64,14 @@ $resultsuser = $mysql->query($sqluser);
         ?>
     </select><br>
     Type <select name="type">
+
+        while($prices = $resultsprice->fetch_assoc()){
+            echo "<option value= '" . $prices["price_id"] . "'>" . $prices["price"] .
+                "</option>";
+        }
+        ?></select><br>
+    <select name="type">
+
         <?php
         echo "<option value='" . $currentrow["type_id"] . "'>" . $currentrow["type"] . "</option>";
 
@@ -74,12 +80,14 @@ $resultsuser = $mysql->query($sqluser);
         }
         ?>
     </select><br>
+        <?php
+        while ($users = $resultsuser->fetch_assoc()) {
+            echo "<option value='" . $users["user_id"] . "'>" . $users["user"] . "</option>";
+        }
 
-<!--    <label for="sortorder"></label>-->
-<!--    <select name="sortorder" id="sortorder">-->
-<!--        <option value="Ascending">Ascending</option>-->
-<!--        <option value="Descending">Descending</option>-->
-<!--    </select><br>-->
+        ?>
+    </select><br>
+
     <button type="submit">Submit</button>
 </form>
 

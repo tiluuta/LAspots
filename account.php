@@ -9,6 +9,7 @@ if(empty(($_SESSION['username']))) {
 
 include './login.php';
 include './navbar.php';
+include './admin-frontpage.php';
 echo $navbar;
 
 $errorpage = '
@@ -98,19 +99,20 @@ if (!empty($_SESSION['username'])){
         $sqlspots = "SELECT * from spots";
         $resultsspots = $mysql->query($sqlspots);
 
-        echo "<br><form>";
-        echo 'Edit User <select name="users">';
-        while ($users = $resultsuser->fetch_assoc()) {
-            echo "<option value='" . $users["user_id"] . "'>" . $users["username"] . "</option>";
-        }
-        echo '</select> <a class="small-button green" style="padding:10px 30px 8px 30px;">Add</a> <button type="submit" class="small-button tan">Edit</button> <button class="small-button brown">Delete</button></form>';
-
-        echo "<form action='admin-edit.php'>";
-        echo 'Edit a Spot <select name="id">';
-        while ($spots = $resultsspots->fetch_assoc()) {
-            echo "<option value='" . $spots["spot_id"] . "'>" . $spots["name"] . "</option>";
-        }
-        echo '</select> <a class="small-button green" style="padding:10px 30px 8px 30px;" href="upload-spots.php">Add</a> <button type="submit" class="small-button tan">Edit</button> <a class="small-button brown" style="padding:12px 30px 10px 30px;" href="admin-delete.php">Delete</a></form>';
+        echo $adminfrontpage;
+//        echo "<br><form>";
+//        echo 'Edit User <select name="users">';
+//        while ($users = $resultsuser->fetch_assoc()) {
+//            echo "<option value='" . $users["user_id"] . "'>" . $users["username"] . "</option>";
+//        }
+//        echo '</select> <a class="small-button green" style="padding:10px 30px 8px 30px;">Add</a> <button type="submit" class="small-button tan">Edit</button> <button class="small-button brown">Delete</button></form>';
+//
+//        echo "<form action='admin-edit.php'>";
+//        echo 'Edit a Spot <select name="id">';
+//        while ($spots = $resultsspots->fetch_assoc()) {
+//            echo "<option value='" . $spots["spot_id"] . "'>" . $spots["name"] . "</option>";
+//        }
+//        echo '</select> <a class="small-button green" style="padding:10px 30px 8px 30px;" href="upload-spots.php">Add</a> <button type="submit" class="small-button tan">Edit</button> <a class="small-button brown" style="padding:12px 30px 10px 30px;" href="admin-delete.php">Delete</a></form>';
 
     }
 } else {

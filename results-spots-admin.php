@@ -75,16 +75,6 @@ echo "<em>Found <strong>" .
     "</strong> results.</em>";
 echo "<br><br>";
 
-//while($currentrow = $results->fetch_assoc()) {
-//    echo "<img alt='" . $currentrow['name'] . "' src='" . $currentrow['photo'] . "' width=100px> " .
-//        "<strong><a href='details-spots.php?id=" . $currentrow['spot_id'] . "'" .
-//        $currentrow['name'] . "</strong></a>" .
-//        $currentrow['address'] . "<em>" .
-//        $currentrow['type'] . "</em>" .
-//        $currentrow['interest'] .
-//        $currentrow['price'];
-//}
-
 ?>
 
 <div class="gallery">

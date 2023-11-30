@@ -82,7 +82,14 @@ echo "<br><br>";
 
 <div class="gallery">
 
-    <?php while($currentrow = $results->fetch_assoc()): ?>
+    <?php
+
+    $start = 1;
+    $end = 10;
+    $counter = $start;
+    $results->data_seek($start-1); // this is for the paginated shit lol
+
+    while($currentrow = $results->fetch_assoc()): ?>
 
         <div class="gallery-item">
 
