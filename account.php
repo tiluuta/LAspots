@@ -10,7 +10,9 @@ if(empty(($_SESSION['username']))) {
 include './login.php';
 include './navbar.php';
 include './admin-frontpage.php';
+include './admin-panel.php';
 echo $navbar;
+echo '
     <title>My Account</title>
     <link rel="icon" type="image/x-icon" href="Assets/favicon.ico">
     <meta charset="UTF-8">
@@ -101,6 +103,8 @@ if (!empty($_SESSION['username'])){
         $resultsuser = $mysql->query($sqluser);
         $sqlspots = "SELECT * from spots";
         $resultsspots = $mysql->query($sqlspots);
+
+        echo $adminpanel;
 
         echo $adminfrontpage;
 //        echo "<br><form>";
