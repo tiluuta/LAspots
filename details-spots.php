@@ -19,6 +19,7 @@ session_start();
             margin-left:auto;
             margin-right:4%;
             border-radius: 20px;
+            text-align:left;
         }
         .ol-popup {
             position: absolute;
@@ -57,6 +58,7 @@ session_start();
         }
         #detailsBox{
             text-align: center;
+            height:100%;
         }
         #imageBox{
             Float: right;
@@ -70,6 +72,7 @@ session_start();
             float: left;
             text-align: left;
             width: 35%;
+            height:fit-content;
             /*border: 1px red solid;*/
             margin-left: 5%;
             font-size: 20pt;
@@ -82,34 +85,28 @@ session_start();
         #interestBubbles{
             text-align: center;
             /*border: 1px solid red;*/
-            width: 30%;
-            margin: auto;
+            display:flex;
+            gap:10px;
+            max-width:40%;
+            justify-content: center;
             height: 3%;
+            margin:auto;
         }
         #typeBox{
             border-radius: 20px;
             background-color: #D6BC7E;
-            width: auto;
-            height: 100%;
+            width: fit-content;
+            height: fit-content;
             float: left;
-            padding-top: 1%;
-            padding-left: 5%;
-            padding-right: 5%;
-            margin-left: 18%;
-
-
+            padding: 5px 30px 5px 30px;
         }
         #interestBox{
             border-radius: 20px;
             background-color: #AFD3A4;
-            width: auto;
-            height: 100%;
+            width: fit-content;
+            height: fit-content;
             float: right;
-            padding-top: 1%;
-            padding-left: 5%;
-            padding-right: 5%;
-            margin-right: 18%;
-
+            padding: 5px 30px 5px 30px;
         }
 
     </style>
@@ -191,20 +188,14 @@ echo $navbar;
                 if(!empty(($_SESSION['username']))) {
                 if ($_SESSION['username'] == 'admin' && $_SESSION['password'] == 'pw'){
                 ?>
-                    <a class="small-button green" style="padding:12px 30px 10px 30px;" href='admin-edit.php?id=<?php echo$currentrow["spot_id"]?>'>Edit</a>
-                    <a class="small-button brown" style="padding:12px 30px 10px 30px;" href='admin-delete.php?id=<?php echo$currentrow["spot_id"]?>'>Delete</a>
+                    <a class="small-button green" style="padding:12px 30px 10px 30px;" href='admin-edit.php?id=<?php echo $_REQUEST["id"]?>'>Edit</a>
+                    <a class="small-button brown" style="padding:12px 30px 10px 30px;" href='admin-delete.php?id=<?php echo $_REQUEST["id"]?>'>Delete</a>
                 <?php
                 }}
                 ?>
             </div>
         </div>
-    </div>
-
-    <div style="position:absolute;">
-
-    </div>
-
-    <div id="map">
+        <div id="map">
             <?php
             $url = 'https://geocode.maps.co/search?q='.$address;
 
@@ -224,91 +215,92 @@ echo $navbar;
             }
 
             ?>
-        <script>
-            var _coords = <?php echo json_encode($dataPhp); ?>;
-            var map;
+            <script>
+                var _coords = <?php echo json_encode($dataPhp); ?>;
+                var map;
 
 
-            function initMap() {
-                map = new ol.Map({
-                    target: "map",
-                    layers: [
-                        new ol.layer.Tile({
-                            source: new ol.source.OSM(),
-                        }),
-                    ],
-                    view: new ol.View({
-                        center: ol.proj.fromLonLat([long, latd]),
-                        zoom: 14,
-                        maxZoom: 19,
-                        minZoom:10
-                    }),
-                    overlay: [
-                        new ol.Overlay({
-                            element: container
-                        }),
-                    ],
-                });
-            }
-
-            function addMarker(latd, long, name) {
-                var _feature = new ol.Feature({
-                    geometry: new ol.geom.Point(ol.proj.fromLonLat([long, latd])),
-
-                });
-                _feature.set("Name", name);
-
-                var layer = new ol.layer.Vector({
-                    source: new ol.source.Vector({
-                        features: [
-                            _feature,
+                function initMap() {
+                    map = new ol.Map({
+                        target: "map",
+                        layers: [
+                            new ol.layer.Tile({
+                                source: new ol.source.OSM(),
+                            }),
                         ],
-                    }),
-                });
-                map.addLayer(layer);
-            }
-
-            if(_coords.length > 0){
-                var latd = _coords[0]["lat"], long = _coords[0]["long"];
-
-                // load and setup map layers
-                initMap();
-
-                // to set all the pins
-                for (let i = 0; i < _coords.length; i++) {
-                    addMarker(_coords[i]["lat"], _coords[i]["long"], _coords[i]["name"]);
+                        view: new ol.View({
+                            center: ol.proj.fromLonLat([long, latd]),
+                            zoom: 14,
+                            maxZoom: 19,
+                            minZoom:10
+                        }),
+                        overlay: [
+                            new ol.Overlay({
+                                element: container
+                            }),
+                        ],
+                    });
                 }
 
-                // for the popup box
-                var container = document.getElementById('popup');
-                var content = document.getElementById('popup-content');
+                function addMarker(latd, long, name) {
+                    var _feature = new ol.Feature({
+                        geometry: new ol.geom.Point(ol.proj.fromLonLat([long, latd])),
 
-                var overlay = new ol.Overlay({
-                    element: container,
-                    autoPan: true,
-                    autoPanAnimation: {
-                        duration: 250
-                    }
-                });
+                    });
+                    _feature.set("Name", name);
 
-                map.addOverlay(overlay);
+                    var layer = new ol.layer.Vector({
+                        source: new ol.source.Vector({
+                            features: [
+                                _feature,
+                            ],
+                        }),
+                    });
+                    map.addLayer(layer);
+                }
 
-                map.on('pointermove', function (event) {
-                    const features = map.getFeaturesAtPixel(event.pixel);
-                    if (features.length > 0) {
-                        var coordinate = event.coordinate;
-                        const name = features[0].get('Name');z
-                        //simple text written in the popup, values are just of the second index
-                        content.innerHTML = '<br><b>Address: </b>'+name;//just the second one is getting displayed
-                        overlay.setPosition(coordinate);
+                if(_coords.length > 0){
+                    var latd = _coords[0]["lat"], long = _coords[0]["long"];
+
+                    // load and setup map layers
+                    initMap();
+
+                    // to set all the pins
+                    for (let i = 0; i < _coords.length; i++) {
+                        addMarker(_coords[i]["lat"], _coords[i]["long"], _coords[i]["name"]);
                     }
-                    else {
-                        // if there are no features on the hovered position then hide the popup box
-                        overlay.setPosition(undefined);
-                    }
-                });
-            }
-        </script>
+
+                    // for the popup box
+                    var container = document.getElementById('popup');
+                    var content = document.getElementById('popup-content');
+
+                    var overlay = new ol.Overlay({
+                        element: container,
+                        autoPan: true,
+                        autoPanAnimation: {
+                            duration: 250
+                        }
+                    });
+
+                    map.addOverlay(overlay);
+
+                    map.on('pointermove', function (event) {
+                        const features = map.getFeaturesAtPixel(event.pixel);
+                        if (features.length > 0) {
+                            var coordinate = event.coordinate;
+                            const name = features[0].get('Name');z
+                            //simple text written in the popup, values are just of the second index
+                            content.innerHTML = '<br><b>Address: </b>'+name;//just the second one is getting displayed
+                            overlay.setPosition(coordinate);
+                        }
+                        else {
+                            // if there are no features on the hovered position then hide the popup box
+                            overlay.setPosition(undefined);
+                        }
+                    });
+                }
+            </script>
+        </div>
     </div>
 
 </div>
