@@ -1,6 +1,12 @@
 <?php
 session_start();
 
+if(empty(($_SESSION['username']))) {
+    if (empty(($_REQUEST['username'])) || empty(($_REQUEST['password']))) {
+        header("Location: loginpage.php");
+    }
+}
+
 $host = "webdev.iyaserver.com";
 $userid = "sandmanl";
 $userpw = "Ace-sweden-sonority89!";
@@ -26,6 +32,15 @@ if($mysql->connect_errno) {
     <title>Create an Account!</title>
     <link rel="icon" type="image/x-icon" href="Assets/favicon.ico">
 </head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QL7D4BF2WZ"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-QL7D4BF2WZ');
+</script>
 <body>
 <form
         action= "upload-confirm-spots.php"
@@ -49,7 +64,7 @@ if($mysql->connect_errno) {
                 <input type="text" placeholder="Enter Description of Spot" name="spot_description" height="200px"<br><br><br></div>
 
             <div class="formtitles">Type of Spot<br></div>
-            <select name="spot_type" class="user-select round-button">
+            <select name="spot_type" class="round-button user-select">
                 <?php
 
                 $sql = "SELECT * FROM types";

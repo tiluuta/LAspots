@@ -12,6 +12,15 @@ session_start();
     <meta charset="UTF-8">
     <link rel="stylesheet" href="stylesheet.css">
 </head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QL7D4BF2WZ"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-QL7D4BF2WZ');
+</script>
 <body>
 <?php
     include './navbar.php';
@@ -75,16 +84,6 @@ echo "<em>Found <strong>" .
     "</strong> results.</em>";
 echo "<br><br>";
 
-//while($currentrow = $results->fetch_assoc()) {
-//    echo "<img alt='" . $currentrow['name'] . "' src='" . $currentrow['photo'] . "' width=100px> " .
-//        "<strong><a href='details-spots.php?id=" . $currentrow['spot_id'] . "'" .
-//        $currentrow['name'] . "</strong></a>" .
-//        $currentrow['address'] . "<em>" .
-//        $currentrow['type'] . "</em>" .
-//        $currentrow['interest'] .
-//        $currentrow['price'];
-//}
-
 ?>
 
 <div class="gallery">
@@ -95,7 +94,7 @@ echo "<br><br>";
 
             <div class="image" style="background-image: url('<?php echo $currentrow['photo_url']; ?>')"></div>
 
-            <div class="details">
+            <a class="details" href="details-spots.php?id=<?php echo $currentrow['spot_id']?>">
                 <div class="overlay">
                 <h3 class="location-tag">&#128205;<?php echo $currentrow['name']; ?></h3>
                 <p class="address"><?php echo $currentrow['address']; ?></p>
@@ -105,7 +104,7 @@ echo "<br><br>";
                 <a class="small-button beige" style="padding:12px 30px 10px 30px;" href='admin-edit.php?id=<?php echo$currentrow["spot_id"]?>'>Edit</a>
                     <a class="small-button brown" style="padding:12px 30px 10px 30px;" href='admin-delete.php?id=<?php echo$currentrow["spot_id"]?>'>Delete</a>
                 </div>
-            </div>
+            </a>
 
         </div>
 

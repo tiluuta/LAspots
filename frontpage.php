@@ -5,14 +5,23 @@
 ?>
 <html>
 <head>
-    <title>LA Spots</title>
+    <title>Bruh LA Spots</title>
     <link rel="icon" type="image/x-icon" href="Assets/favicon.ico">
     <meta charset="UTF-8">
     <link rel="stylesheet" href="stylesheet.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QL7D4BF2WZ"></script>
 </head>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-QL7D4BF2WZ');
+</script>
 <body>
 <?php
     echo $navbar;
