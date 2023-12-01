@@ -73,7 +73,7 @@ if(!$results) {
 }
 
 echo "<em>Found <strong>" .
-    $results->num_rows .
+    $results->num_rows.
     "</strong> results.</em>";
 echo "<br><br>";
 
@@ -93,16 +93,52 @@ echo "<br><br>";
 
     <?php
 
-    $start = 1;
-    $end = 10;
+    if(empty($_REQUEST["start"]))
+    { $start=1; }
+    else
+    { $start = $_REQUEST["start"]; }
+
+    $end = $start + 25;
+
+    if ($results->num_rows < $end)
+    { $end = $results->num_rows; }
+
     $counter = $start;
-    $results->data_seek($start-1); // this is for the paginated shit lol
+
+    $results->data_seek($start-1);
+
+    $searchstring = "&photo_url=" . $_REQUEST['photo_url'] .
+            "&name=" . $_REQUEST['name'] .
+            "&address=" . $_REQUEST['address'] .
+            "&type=" . $_REQUEST['type'] .
+            "&interest=" . $_REQUEST['interest'] .
+            "&price=" . $_REQUEST['price'];
+            
+//        echo $searchstring;
+
+    if($start != 1) {
+        echo "<a href='results-spots.php?start=" . ($start - 25) . $searchstring .
+            "'> Previous Spots</a> |  ";
+    }
+
+    if($end < $results->num_rows) {
+        echo "<a href='results-spots.php?start=" . ($start + 25) . $searchstring .
+            "'> Next Spots</a><br><br>";
+    }
 
     while($currentrow = $results->fetch_assoc()): ?>
 
         <div class="gallery-item">
 
-            <div class="image" style="background-image: url('<?php echo $currentrow['photo_url']; ?>')"></div>
+            <div class="image" style="background-image: url('<?php echo $counter . ")". $currentrow['photo_url'];
+
+            if($counter==$end)
+    	        { break; }
+
+                $counter++;
+
+
+            ?>')"></div>
 
             <a class="details" href="details-spots.php?id=<?php echo $currentrow['spot_id']?>">
                 <div class="overlay">
