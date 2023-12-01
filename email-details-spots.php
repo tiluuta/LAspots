@@ -18,7 +18,7 @@ if($mysql->connect_errno) {
     exit();
 }
 
-$sql = "SELECT * FROM spot_view2 WHERE spot_id = " . $_REQUEST["id"];
+$sql = "SELECT * FROM spot_view2";
 
 $results = $mysql->query($sql);
 
@@ -47,7 +47,7 @@ if(!empty($_REQUEST["email"]))
     $message = "Hi! A friend recommended this spot to you! ";
 
     while($currentrow = $results->fetch_assoc()) {
-        $message .= "Spot: " . $currentrow["name"];
+        $message .= "Spot: " . $_SESSION['name'];
     }
 
     $test = mail($to,$subject,$message);

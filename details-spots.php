@@ -166,6 +166,16 @@ echo $navbar;
     }
 
     //    echo "<hr>";
+
+    $_SESSION["id"] = $_REQUEST["id"];
+
+    while($currentrow = $results->fetch_assoc()) {
+        if($currentrow['spot_id'] == $_REQUEST["id"]){
+            $_SESSION['name'] = $currentrow['name'];
+        }
+    }
+    echo  $_SESSION['name'];
+    echo    $_SESSION["id"];
     ?>
 
     <div id="detailsBox">
