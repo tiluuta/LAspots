@@ -112,9 +112,14 @@ session_start();
     </style>
 </head>
 <body>
+<form
+        action= "email-details-spots.php"
+        method = "get"
+>
 <?php
 include './navbar.php';
 echo $navbar;
+
 ?>
 <div class="margins">
     <?php
@@ -193,6 +198,13 @@ echo $navbar;
                 <?php
                 }}
                 ?>
+
+                <h3>Send a spot to a friend!</h3>
+                <form action="" method="post">
+                    <h4>Email:</h4> <input type="text" name="email" /><br />
+                    <input type="submit" value='Send Email' />
+
+                </form>
             </div>
         </div>
         <div id="map">
