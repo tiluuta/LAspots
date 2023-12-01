@@ -15,7 +15,7 @@ $mysql = new mysqli(
     $userid,
     $userpw,
     $db
-); //
+);
 
 if($mysql->connect_errno) {
     echo "db connection error : " . $mysql->connect_error;
@@ -46,40 +46,36 @@ $resultsuser = $mysql->query($sqluser);
 
     Name <input type ="text" name="name" value="<?php echo $currentrow["name"];?>"><br>
 
-    <?php
-    $currentrow["name"] . "<br>" ?>
+    <?php $currentrow["name"] . "<br>" ?>
     Address <input type ="text" name="address" value="<?php echo $currentrow["address"];?>"><br>
-    <?php
-    $currentrow["address"] . "<br>" ?>
+
+    <?php $currentrow["address"] . "<br>" ?>
 
     Photo <input type ="text" name="photo" value="<?php echo $currentrow["photo_url"];?>"><br>
-    <?php
-    echo '<img width="50%" src="' . $currentrow["photo_url"] . '"><br>' ?>
+    <?php echo '<img width="50%" src="' . $currentrow["photo_url"] . '"><br>' ?>
 
     Price <select name="price">
         <?php
-        echo "<option value='" . $currentrow["price_id"] . "'>" . $currentrow["price"] . "</option>";
-
         while($prices = $resultsprice->fetch_assoc()):
+            if($currentrow["price"] == $prices["price"]){
+                echo "<option value='" . $prices["price_id"] . "'>" . $currentrow["price"] . "</option>";
+            }
+
             echo "<option value= '" . $prices["price_id"] . "'>" . $prices["price"] . "</option>";
         endwhile;
         ?>
     </select><br>
     Type <select name="type">
         <?php
-        echo "<option value='" . $currentrow["type_id"] . "'>" . $currentrow["type"] . "</option>";
-
         while ($types = $resultstype->fetch_assoc()) {
+            if($types["price"] == $currentrow["price"]){
+                echo "<option value='" . $types["type_id"] . "'>" . $currentrow["type"] . "</option>";
+            }
             echo "<option value='" . $types["type_id"] . "'>" . $types["type"] . "</option>";
         }
         ?>
     </select><br>
 
-<!--    <label for="sortorder"></label>-->
-<!--    <select name="sortorder" id="sortorder">-->
-<!--        <option value="Ascending">Ascending</option>-->
-<!--        <option value="Descending">Descending</option>-->
-<!--    </select><br>-->
     <button type="submit">Submit</button>
 </form>
 

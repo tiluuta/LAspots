@@ -3,16 +3,34 @@ session_start();
 
 if(empty(($_SESSION['username']))) {
     if (empty(($_REQUEST['username'])) || empty(($_REQUEST['password']))) {
-        header("Location: frontpage.php");
+        header("Location: loginpage.php");
     }
 }
 
 include './login.php';
 include './navbar.php';
+include './admin-frontpage.php';
+include './admin-panel.php';
 echo $navbar;
+echo '
+    <head>
+    <title>My Account</title>
+    <link rel="icon" type="image/x-icon" href="Assets/favicon.ico">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="stylesheet.css">
+    </head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QL7D4BF2WZ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag("js", new Date());
+
+        gtag("config", "G-QL7D4BF2WZ");
+    </script>
+';
 
 $errorpage = '
-    <link rel="stylesheet" href="stylesheet.css">
     <div style="text-align:center;">
         <h4>Invalid Username or Password</h4>
     </div>
@@ -62,7 +80,6 @@ if(array_key_exists('logout', $_POST)) {
 
 if (!empty($_SESSION['username'])){
     $accountpage = '
-                <link rel="stylesheet" href="stylesheet.css"> 
                 <script>
                     function showPass(){
                        document.getElementById("showPass-button").style.display = "none";
@@ -98,19 +115,22 @@ if (!empty($_SESSION['username'])){
         $sqlspots = "SELECT * from spots";
         $resultsspots = $mysql->query($sqlspots);
 
-        echo "<br><form>";
-        echo 'Edit User <select name="users">';
-        while ($users = $resultsuser->fetch_assoc()) {
-            echo "<option value='" . $users["user_id"] . "'>" . $users["username"] . "</option>";
-        }
-        echo '</select> <a class="small-button green" style="padding:10px 30px 8px 30px;">Add</a> <button type="submit" class="small-button tan">Edit</button> <button class="small-button brown">Delete</button></form>';
+        echo $adminpanel;
 
-        echo "<form action='admin-edit.php'>";
-        echo 'Edit a Spot <select name="id">';
-        while ($spots = $resultsspots->fetch_assoc()) {
-            echo "<option value='" . $spots["spot_id"] . "'>" . $spots["name"] . "</option>";
-        }
-        echo '</select> <a class="small-button green" style="padding:10px 30px 8px 30px;" href="upload-spots.php">Add</a> <button type="submit" class="small-button tan">Edit</button> <a class="small-button brown" style="padding:12px 30px 10px 30px;" href="admin-delete.php">Delete</a></form>';
+        echo $adminfrontpage;
+//        echo "<br><form>";
+//        echo 'Edit User <select name="users">';
+//        while ($users = $resultsuser->fetch_assoc()) {
+//            echo "<option value='" . $users["user_id"] . "'>" . $users["username"] . "</option>";
+//        }
+//        echo '</select> <a class="small-button green" style="padding:10px 30px 8px 30px;">Add</a> <button type="submit" class="small-button tan">Edit</button> <button class="small-button brown">Delete</button></form>';
+//
+//        echo "<form action='admin-edit.php'>";
+//        echo 'Edit a Spot <select name="id">';
+//        while ($spots = $resultsspots->fetch_assoc()) {
+//            echo "<option value='" . $spots["spot_id"] . "'>" . $spots["name"] . "</option>";
+//        }
+//        echo '</select> <a class="small-button green" style="padding:10px 30px 8px 30px;" href="upload-spots.php">Add</a> <button type="submit" class="small-button tan">Edit</button> <a class="small-button brown" style="padding:12px 30px 10px 30px;" href="admin-delete.php">Delete</a></form>';
 
     }
 } else {

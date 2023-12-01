@@ -5,6 +5,15 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="stylesheet.css">
 </head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QL7D4BF2WZ"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-QL7D4BF2WZ');
+</script>
 <body>
 <?php
     include './navbar.php';
@@ -82,21 +91,28 @@ echo "<br><br>";
 
 <div class="gallery">
 
-    <?php while($currentrow = $results->fetch_assoc()): ?>
+    <?php
+
+    $start = 1;
+    $end = 10;
+    $counter = $start;
+    $results->data_seek($start-1); // this is for the paginated shit lol
+
+    while($currentrow = $results->fetch_assoc()): ?>
 
         <div class="gallery-item">
 
             <div class="image" style="background-image: url('<?php echo $currentrow['photo_url']; ?>')"></div>
 
-            <div class="details">
+            <a class="details" href="details-spots.php?id=<?php echo $currentrow['spot_id']?>">
                 <div class="overlay">
-                <h3 class="location-tag">&#128205;<?php echo $currentrow['name']; ?></h3>
+                <h3 class="location-tag">&#128205;<?php echo utf8_decode($currentrow['name']); ?></h3>
                 <p class="address"><?php echo $currentrow['address']; ?></p>
                 <p><em><?php echo $currentrow['type']; ?></em></p>
                 <p><?php echo $currentrow['interest']; ?></p>
                 <p><?php echo $currentrow['price']; ?></p>
                 </div>
-            </div>
+            </a>
 
         </div>
 
@@ -104,6 +120,7 @@ echo "<br><br>";
 
 </div>
 </div>
+
 
 </body>
 </html>
