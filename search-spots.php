@@ -30,16 +30,16 @@ if($mysql->connect_errno) {
 <head>
     <title>Find Your Spot!</title>
     <link rel="icon" type="image/x-icon" href="Assets/favicon.ico">
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QL7D4BF2WZ"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'G-QL7D4BF2WZ');
-    </script>
 </head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QL7D4BF2WZ"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-QL7D4BF2WZ');
+</script>
 <body>
 <?php
     include './navbar.php';

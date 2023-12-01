@@ -10,15 +10,6 @@ session_start();
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QL7D4BF2WZ"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'G-QL7D4BF2WZ');
-    </script>
     <script src="https://cdn.jsdelivr.net/npm/ol@v7.1.0/dist/ol.js"></script>
 
     <style>
@@ -120,6 +111,15 @@ session_start();
 
     </style>
 </head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QL7D4BF2WZ"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-QL7D4BF2WZ');
+</script>
 <body>
 <form
         action= "email-details-spots.php"
@@ -170,6 +170,7 @@ echo $navbar;
 
     <div id="detailsBox">
         <?php
+        $address = '';
         while($currentrow = $results->fetch_assoc()){
             $address = urlencode($currentrow["address"]);
         echo "<h1 class='spotName'>" . $currentrow["name"] . "</h1>";

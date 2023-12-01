@@ -13,18 +13,20 @@ include './admin-frontpage.php';
 include './admin-panel.php';
 echo $navbar;
 echo '
+    <head>
     <title>My Account</title>
     <link rel="icon" type="image/x-icon" href="Assets/favicon.ico">
     <meta charset="UTF-8">
     <link rel="stylesheet" href="stylesheet.css">
+    </head>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-QL7D4BF2WZ"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag("js", new Date());
-    
-      gtag("config", "G-QL7D4BF2WZ");
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag("js", new Date());
+
+        gtag("config", "G-QL7D4BF2WZ");
     </script>
 ';
 
