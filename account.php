@@ -3,7 +3,7 @@ session_start();
 
 if(empty(($_SESSION['username']))) {
     if (empty(($_REQUEST['username'])) || empty(($_REQUEST['password']))) {
-        header("Location: frontpage.php");
+        header("Location: loginpage.php");
     }
 }
 

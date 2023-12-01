@@ -1,6 +1,12 @@
 <?php
 session_start();
 
+if(empty(($_SESSION['username']))) {
+    if (empty(($_REQUEST['username'])) || empty(($_REQUEST['password']))) {
+        header("Location: loginpage.php");
+    }
+}
+
 $host = "webdev.iyaserver.com";
 $userid = "sandmanl";
 $userpw = "Ace-sweden-sonority89!";
