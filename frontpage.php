@@ -42,11 +42,12 @@
         <h4 style="width:60%;">Experience the city of angels differently.
             Find your favorite hidden gems that won’t pop up in a simple internet search.</h4>
         <div>
-            <button class="tan round-button"><a href="search-spots.php">Find your spot</a></button>
+            <button class="tan round-button"><a href="search-spots.php">Find your Spot</a></button>
         </div>
         <br>
         <div>
-            <button class="green round-button"><a href="feeling-lucky.php">Randomize spot</a></button>
+            <button class="green round-button"><a href="feeling-lucky.php">Randomize Spot</a></button>
+<!--            details-spots.php?id=-->
         </div>
 
     </div>
