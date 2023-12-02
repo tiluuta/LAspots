@@ -166,17 +166,18 @@ echo "<br><br>";
 
         <div class="gallery-item">
 
-            <div class="image" style="background-image: url('<?php echo $counter . ")". $currentrow['photo_url'];
-
-            if($counter==$end)
-    	        { break; }
-
-                $counter++;
+            <div class="image" style="background-image: url('<?php echo $currentrow['photo_url'];
 
 
             ?>')"></div>
 
-            <a class="details" href="details-spots.php?id=<?php echo $currentrow['spot_id']?>">
+            <a class="details" href="details-spots.php?id=<?php echo $counter . ")". $currentrow['spot_id'];
+            if($counter==$end)
+            { break; }
+
+                $counter++;
+
+            ?>">
                 <div class="overlay">
                 <h3 class="location-tag">&#128205;<?php echo utf8_decode($currentrow['name']); ?></h3>
                 <p class="address"><?php echo $currentrow['address']; ?></p>
