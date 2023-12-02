@@ -10,7 +10,8 @@ if(empty(($_SESSION['username']))) {
 include './login.php';
 include './navbar.php';
 include './admin-frontpage.php';
-include './admin-panel.php';
+include './spotedit-panel.php';
+include './usercred-panel.php';
 echo $navbar;
 echo '
     <head>
@@ -115,9 +116,11 @@ if (!empty($_SESSION['username'])){
         $sqlspots = "SELECT * from spots";
         $resultsspots = $mysql->query($sqlspots);
 
-        echo $adminpanel;
+        echo '<div class="row" style="justify-content:center;margin-top:50px;margin-bottom:50px;">';
+        echo '<div class="item">' . $spotpanel . "</div>";
+        echo '<div class="item">' . $userpanel . "</div>";
+        echo '</div>';
 
-        echo $adminfrontpage;
 //        echo "<br><form>";
 //        echo 'Edit User <select name="users">';
 //        while ($users = $resultsuser->fetch_assoc()) {

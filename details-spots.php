@@ -133,9 +133,11 @@ echo $navbar;
 <div class="margins">
     <?php
 
-    //    if(empty($_REQUEST['type'])) {
-    //        header("Location: search-spots.php");
-    //    }
+    if(empty($_REQUEST['id'])) {
+        echo "<h4>No spot found. Redirecting to homepage...</h4><script>
+    setTimeout(function() { window.location='frontpage.php'; }, 2000);
+    </script>";
+    }
 
     $host = "webdev.iyaserver.com";
     $userid = "sandmanl";
