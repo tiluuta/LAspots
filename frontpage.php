@@ -34,7 +34,7 @@
     <!--- EDIT ID="spotlight" to change to random spot --->
     <div id="spotlight" class="item" style="width:34.5%;position:relative;">
         <img class="frontpage-img" src="Assets/LIES479-046.jpg">
-        <a class="location-tag" href="detail-spots.php">&#128205; The Wallflower, Venice</a>
+        <a class="location-tag" href="details-spots.php?id=75">&#128205; The Wallflower, Venice</a>
     </div>
 
     <div class="item" style="width:65%;">
