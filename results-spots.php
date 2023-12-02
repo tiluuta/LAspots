@@ -4,6 +4,33 @@
     <link rel="icon" type="image/x-icon" href="Assets/favicon.ico">
     <meta charset="UTF-8">
     <link rel="stylesheet" href="stylesheet.css">
+    <style>
+        #bigPrevNextBox{
+            margin:auto;
+            width:100%;
+            height: auto;
+            margin-bottom: 2%;
+
+        }
+        #prevNextBox{
+            /*margin: auto;*/
+            /*border: 1px solid red;*/
+            float: left;
+            width: auto;
+            background-color: #AFD3A4;
+            text-align: center;
+            /*border: 1px solid red;*/
+            display:flex;
+            gap:10px;
+            max-width:40%;
+            justify-content: center;
+            height: 3%;
+            margin:auto;
+            padding: 5px 30px 5px 30px;
+            border-radius: 20px;
+
+        }
+    </style>
 </head>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-QL7D4BF2WZ"></script>
@@ -117,20 +144,22 @@ echo "<br><br>";
 //        echo $searchstring;
 
     ?>
-<div id="prevNext box">
-    <?php
+<div id="bigPrevNextBox">
+    <div id="prevNextBox">
+        <?php
 
-    if($start != 1) {
-        echo "<a href='results-spots.php?start=" . ($start - 25) . $searchstring .
-            "'> Previous Spots</a> |  ";
-    }
+        if($start != 1) {
+            echo "<a href='results-spots.php?start=" . ($start - 25) . $searchstring .
+                "'> Previous Spots</a> |  ";
+        }
 
-    if($end < $results->num_rows) {
-        echo "<a href='results-spots.php?start=" . ($start + 25) . $searchstring .
-            "'>Next Spots</a><br><br>";
-    }
+        if($end < $results->num_rows) {
+            echo "<a href='results-spots.php?start=" . ($start + 25) . $searchstring .
+                "'>Next Spots</a><br><br>";
+        }
 
-    ?>
+        ?>
+    </div>
 </div>
     <?php
     while($currentrow = $results->fetch_assoc()): ?>
