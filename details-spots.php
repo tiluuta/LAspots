@@ -218,8 +218,8 @@ echo $navbar;
                         $_SESSION['name'] = $currentrow['name'];
                     }
                 }
-                echo  $_SESSION['name'];
-                echo    $_SESSION["id"];
+                //echo  $_SESSION['name'];
+                //echo    $_SESSION["id"];
                 ?>
 
                 <h3>Send a spot to a friend!</h3>

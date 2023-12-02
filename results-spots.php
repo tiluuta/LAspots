@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <html>
 <head>
     <title>LA Spots!</title>
@@ -43,6 +47,7 @@
 </script>
 <body>
 <?php
+
     include './navbar.php';
     echo $navbar;
 ?>
@@ -69,6 +74,45 @@ if($mysql->connect_errno) {
     echo "db connection error : " . $mysql->connect_error;
     exit();
 }
+
+$typesql = "SELECT * FROM types";
+$typeresults = $mysql->query($typesql);
+
+while($type = $typeresults->fetch_assoc()){
+    if ($type['type'] == $_REQUEST['type']) {
+        $type_id = $type['type_id'];
+    }
+}
+
+$interestsql = "SELECT * FROM interests";
+$interestsresults = $mysql->query($typesql);
+
+while($type = $typeresults->fetch_assoc()){
+    if ($type['type'] == $_REQUEST['type']) {
+        $type_id = $type['type_id'];
+    }
+}
+
+$searchsql = "  INSERT INTO searches " .
+    "    (name_search, address_search, type_search_id, interest_search_id, price_search_id, username_search_id)" .
+    "    VALUES (" .
+    "	'" . $_REQUEST['name'] . "'," .
+    "	'" . $_REQUEST['address'] . "'," .
+    "	'" . $_REQUEST['type'] . "'," .
+    "	'" . $_REQUEST['interest'] . "'," .
+    "	'" . $_REQUEST['price'] . "'," .
+    "	'" . "NULL" . "'" .
+    ")";
+
+echo $searchsql;
+
+if(!$searchresults) {
+    echo "ERROR! FORM info " . print_r($_REQUEST) . "<hr>";
+    echo "SQL: " . $$searchsql . "<hr>";
+    echo "db error: " . $mysql->error;
+    exit();
+}
+
 
 $sql = 	"SELECT * FROM spot_view2 WHERE 1=1";
 if(!empty($_REQUEST['name'])) {

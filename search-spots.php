@@ -53,6 +53,8 @@ if($mysql->connect_errno) {
         <br><div class="formtitles">Name of spot</div><input type="text" name="name" placeholder="name of spot" class="round-button">
         <br><br>
         <div class="formtitles">Address</div><input type="text" name="address" placeholder="address" class="round-button">
+        <?php
+        ?>
         <br><br>
         <div class="formtitles">Type of Spot</div>
         <select name="type" class="user-select round-button">
@@ -71,6 +73,7 @@ if($mysql->connect_errno) {
             while($currentrow = $results->fetch_assoc()) {
                 echo "<option>" . $currentrow['type'] . "</option>";
             }
+
             ?>
         </select>
         <br><br>
