@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 $host = "webdev.iyaserver.com";
 $userid = "sandmanl";
@@ -43,12 +44,12 @@ echo $navbar;
 if(!empty($_REQUEST["email"]))
 {
     $to = $_REQUEST["email"];
-    $subject = "A hidden LA gem...";
+    $subject = "Message from LA spots search site";
     $message = "Hi! A friend recommended this spot to you! ";
 
-    while($currentrow = $results->fetch_assoc()) {
-        $message .= "Spot: " . $_SESSION['name'];
-    }
+    $message .= "Spot: " . $_SESSION['name'];
+
+    $message .= " unsubscribe";
 
     $test = mail($to,$subject,$message);
 

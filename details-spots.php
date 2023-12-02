@@ -167,15 +167,7 @@ echo $navbar;
 
     //    echo "<hr>";
 
-    $_SESSION["id"] = $_REQUEST["id"];
 
-    while($currentrow = $results->fetch_assoc()) {
-        if($currentrow['spot_id'] == $_REQUEST["id"]){
-            $_SESSION['name'] = $currentrow['name'];
-        }
-    }
-    echo  $_SESSION['name'];
-    echo    $_SESSION["id"];
     ?>
 
     <div id="detailsBox">
@@ -217,6 +209,17 @@ echo $navbar;
                     <a class="small-button brown" style="padding:12px 30px 10px 30px;" href='admin-delete.php?id=<?php echo $_REQUEST["id"]?>'>Delete</a>
                 <?php
                 }}
+
+
+                $_SESSION["id"] = $_REQUEST["id"];
+
+                while($currentrow = $results->fetch_assoc()) {
+                    if($currentrow['spot_id'] == $_REQUEST["id"]){
+                        $_SESSION['name'] = $currentrow['name'];
+                    }
+                }
+                echo  $_SESSION['name'];
+                echo    $_SESSION["id"];
                 ?>
 
                 <h3>Send a spot to a friend!</h3>
