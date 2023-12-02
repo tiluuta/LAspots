@@ -211,17 +211,25 @@ echo $navbar;
                     <a class="small-button brown" style="padding:12px 30px 10px 30px;" href='admin-delete.php?id=<?php echo $_REQUEST["id"]?>'>Delete</a>
                 <?php
                 }}
+                $sql = "SELECT * FROM spot_view2 WHERE spot_id = " . $_REQUEST["id"];
+                //    echo $sql;
 
+                $results = $mysql->query($sql);
+
+                if(!$results){
+                    echo "SQL ERROR:" . $mysql->error;
+                    echo "<hr>" . $sql;
+                    exit();
+                }
 
                 $_SESSION["id"] = $_REQUEST["id"];
+                $_SESSION['name'] = '';
 
                 while($currentrow = $results->fetch_assoc()) {
-                    if($currentrow['spot_id'] == $_REQUEST["id"]){
+                    if($currentrow['spot_id'] == $_SESSION["id"]){
                         $_SESSION['name'] = $currentrow['name'];
                     }
                 }
-                echo  $_SESSION['name'];
-                echo    $_SESSION["id"];
                 ?>
 
                 <h3>Send a spot to a friend!</h3>
