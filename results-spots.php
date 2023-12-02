@@ -107,7 +107,7 @@ echo "<br><br>";
 
     $results->data_seek($start-1);
 
-    $searchstring = "&photo_url=" . $_REQUEST['photo_url'] .
+    $searchstring =
             "&name=" . $_REQUEST['name'] .
             "&address=" . $_REQUEST['address'] .
             "&type=" . $_REQUEST['type'] .
@@ -115,6 +115,10 @@ echo "<br><br>";
             "&price=" . $_REQUEST['price'];
             
 //        echo $searchstring;
+
+    ?>
+<div id="prevNext box">
+    <?php
 
     if($start != 1) {
         echo "<a href='results-spots.php?start=" . ($start - 25) . $searchstring .
@@ -126,6 +130,9 @@ echo "<br><br>";
             "'>Next Spots</a><br><br>";
     }
 
+    ?>
+</div>
+    <?php
     while($currentrow = $results->fetch_assoc()): ?>
 
         <div class="gallery-item">
