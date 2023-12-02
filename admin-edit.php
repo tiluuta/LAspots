@@ -38,23 +38,43 @@ $sqluser = "SELECT * from users";
 $resultsuser = $mysql->query($sqluser);
 
 ?>
+<link rel="stylesheet" href="stylesheet.css">
+<html>
+<head>
+    <title>Edit Your Spot!</title>
+    <link rel="icon" type="image/x-icon" href="Assets/favicon.ico">
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QL7D4BF2WZ"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
+    gtag('config', 'G-QL7D4BF2WZ');
+</script>
+<body>
+<?php
+include './navbar.php';
+echo $navbar;
+?>
+
+<div>
+    <h2 style="text-align:center;">edit your spot!</h2>
+    <br><br>
 <form class="formcontainer" action="admin-update.php">
     <input type="hidden" name="id" value="<?php echo $_REQUEST["id"]; ?>">
 
     <?php $currentrow = $results->fetch_assoc();?>
+    <br><div class="formtitles">Name of spot</div><input type="text" name="name" placeholder="name of spot" class="round-button" value="<?php echo $currentrow["name"];?>"><br>
+    <br>
+    <div class="formtitles">Address</div><input type="text" name="address" placeholder="address" class="round-button" value="<?php echo $currentrow["address"];?>">
 
-    Name <input type ="text" name="name" value="<?php echo $currentrow["name"];?>"><br>
 
-    <?php $currentrow["name"] . "<br>" ?>
-    Address <input type ="text" name="address" value="<?php echo $currentrow["address"];?>"><br>
-
-    <?php $currentrow["address"] . "<br>" ?>
-
-    Photo <input type ="text" name="photo" value="<?php echo $currentrow["photo_url"];?>"><br>
+    <div class="formtitles">Photo <value="<?php echo $currentrow["address"];?>"><br>
     <?php echo '<img width="50%" src="' . $currentrow["photo_url"] . '"><br>' ?>
 
-    Price <select name="price">
+        <br><div class="formtitles">Price <br><select name="price" class="user-select round-button">>
         <?php
         while($prices = $resultsprice->fetch_assoc()):
             if($currentrow["price"] == $prices["price"]){
@@ -64,8 +84,8 @@ $resultsuser = $mysql->query($sqluser);
             echo "<option value= '" . $prices["price_id"] . "'>" . $prices["price"] . "</option>";
         endwhile;
         ?>
-    </select><br>
-    Type <select name="type">
+    </select><br><br>
+            <div class="formtitles">Type <br><select name="type" class="user-select round-button">>
         <?php
         while ($types = $resultstype->fetch_assoc()) {
             if($types["price"] == $currentrow["price"]){
@@ -74,9 +94,9 @@ $resultsuser = $mysql->query($sqluser);
             echo "<option value='" . $types["type_id"] . "'>" . $types["type"] . "</option>";
         }
         ?>
-    </select><br>
+    </select><br><br>
 
-    <button type="submit">Submit</button>
+    <button type="submit" class="round-button brown">Submit</button>
 </form>
 
 

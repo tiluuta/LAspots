@@ -101,14 +101,14 @@ echo $navbar;
     }
 
     $randomize = "SELECT * FROM spot_view2 ORDER BY RAND() LIMIT 1";
-    $sql = "SELECT * FROM spot_view2 WHERE spot_id = " . $randomize["id"];
+
     //    echo $sql;
 
-    $results = $mysql->query($sql);
+    $results = $mysql->query($randomize);
 
     if(!$results){
         echo "SQL ERROR:" . $mysql->error;
-        echo "<hr>" . $sql;
+        echo "<hr>" . $randomize;
         exit();
     }
 

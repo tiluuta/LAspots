@@ -46,7 +46,7 @@
         </div>
         <br>
         <div>
-            <button class="green round-button"><a href="feeling-lucky.php">I'm feeling lucky</a></button>
+            <button class="green round-button"><a href="feeling-lucky.php">Randomize spot</a></button>
         </div>
 
     </div>
