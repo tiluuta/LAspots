@@ -123,7 +123,7 @@ echo "<br><br>";
 
     if($end < $results->num_rows) {
         echo "<a href='results-spots.php?start=" . ($start + 25) . $searchstring .
-            "'> Next Spots</a><br><br>";
+            "'>Next Spots</a><br><br>";
     }
 
     while($currentrow = $results->fetch_assoc()): ?>
