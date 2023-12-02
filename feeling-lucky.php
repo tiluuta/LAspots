@@ -1,4 +1,4 @@
-<<html>
+<html>
 <head>
     <title>LA Spots</title>
     <link rel="icon" type="image/x-icon" href="Assets/favicon.ico">
