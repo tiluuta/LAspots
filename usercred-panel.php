@@ -31,21 +31,32 @@ $resultsspots = $mysql->query($sqlspots);
 
 
 $userpanel = '
-            <form class="formcontainer" action="">
+            <form class="formcontainer" action="user-edit.php">
             <h2>Edit User</h2><br>
-            <div class="input">Username<br><select class="user-select round-button" name="user">';
+            <div class="input">Change Credentials';
+
+$adminpanel = $userpanel . '<br><select class="user-select round-button" name="user">';
 
 $i = 0;
 while ($users = $resultsuser->fetch_assoc()) {
     $useroption= "<option value='" . $users["user_id"] . "'>" . $users["username"] . "</option>";
-    $userpanel = $userpanel . $useroption;
+    $adminpanel = $adminpanel . $useroption;
     $i += 1;
 }
 
-$userpanel = $userpanel . '</select><br>
-                <input type="text" placeholder="New username" name="username"></div>
+$adminpanel = $adminpanel . '</select><br>
+                <input type="text" placeholder="New username" name="new-user"></div>
             <div class="input">
-                <input type="text" placeholder="New password" name="password"><br><br></div>
+                <input type="text" placeholder="New password" name="new-pass"><br><br></div>
+            <button type="submit" class="round-button beige">Edit Credentials</button><br><br>
+            <a class="round-button brown" href="sign-up-spots.php">Create New Account</a>
+            <br><br>
+        </form>';
+
+$userpanel = $userpanel . '<br>
+                <input type="text" placeholder="New username" name="new-user"></div>
+            <div class="input">
+                <input type="text" placeholder="New password" name="new-pass"><br><br></div>
             <button type="submit" class="round-button beige">Edit Credentials</button><br><br>
             <a class="round-button brown" href="sign-up-spots.php">Create New Account</a>
             <br><br>

@@ -118,7 +118,7 @@ if (!empty($_SESSION['username'])){
 
         echo '<div class="row" style="justify-content:center;margin-top:50px;margin-bottom:50px;">';
         echo '<div class="item">' . $spotpanel . "</div>";
-        echo '<div class="item">' . $userpanel . "</div>";
+        echo '<div class="item">' . $adminpanel . "</div>";
         echo '</div>';
 
 //        echo "<br><form>";
@@ -135,6 +135,8 @@ if (!empty($_SESSION['username'])){
 //        }
 //        echo '</select> <a class="small-button green" style="padding:10px 30px 8px 30px;" href="upload-spots.php">Add</a> <button type="submit" class="small-button tan">Edit</button> <a class="small-button brown" style="padding:12px 30px 10px 30px;" href="admin-delete.php">Delete</a></form>';
 
+    } else{
+        echo '<div class="row" style="justify-content:center;margin-top:50px;margin-bottom:50px;">' . $userpanel . '</div>';
     }
 } else {
     echo $login;
