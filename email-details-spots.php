@@ -46,12 +46,12 @@ if(!empty($_REQUEST["email"]))
     $to = $_REQUEST["email"];
     $subject = "Message from LA spots search site";
     $message = "Hi! A friend recommended this spot to you! ";
-
+    $from = "sandmanl@webdev.iyaserver.com";
     $message .= "Spot: " . $_SESSION['name'];
 
     $message .= " unsubscribe";
 
-    $test = mail($to,$subject,$message);
+    $test = mail($to,$subject,$message,$from);
 
 
     if ($test==1)
