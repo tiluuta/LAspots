@@ -62,20 +62,19 @@ echo $navbar;
 <div>
     <h2 style="text-align:center;">edit your spot!</h2>
     <br><br>
-<form class="login-box" action="admin-update.php">
+<form class="login-box" action="admin-update.php" style="width:50%;">
     <input type="hidden" name="id" value="<?php echo $_REQUEST["id"]; ?>">
 
     <?php $currentrow = $results->fetch_assoc();?>
-    <br><div class="formtitles">Name of spot</div><input type="text" name="name" placeholder="Name of Spot" class="round-button" style="width:100%;margin:auto;" value="<?php echo $currentrow["name"];?>"><br>
+    <br><div class="formtitles">Name of spot</div><input type="text" name="name" placeholder="Name of Spot" class="round-button" style="width:50%;margin:auto;" value="<?php echo $currentrow["name"];?>"><br>
     <br>
     <div class="formtitles">Address</div>
-        <input type="text" name="address" placeholder="Address" class="round-button" style="width:100%;margin:auto;" value="<?php echo $currentrow["address"];?>">
+        <input type="text" name="address" placeholder="Address" class="round-button" style="width:50%;margin:auto;" value="<?php echo $currentrow["address"];?>">
 
-
-    <div class="formtitles"><br>Photo <value="<?php echo $currentrow["address"];?>"><br>
+    <div class="formtitles"><br>Photo URL<value="<?php echo $currentrow["address"];?>"><br>
     <?php echo '<img width="50%" src="' . $currentrow["photo_url"] . '"><br>' ?>
-        <br><input type="text" name="photo" placeholder="Photo URL" class="round-button" style="width:100%;margin:auto;" value="<?php echo $currentrow["photo_url"];?>">
-        <br><br><div class="formtitles">Price <br><select name="price" class="user-select round-button">>
+        <br><input type="text" name="photo" placeholder="Photo URL" class="round-button" style="width:50%;margin:auto;" value="<?php echo $currentrow["photo_url"];?>">
+        <br><br><div class="formtitles">Price<br><select name="price" class="user-select round-button" style="margin:auto;">>
 
         <?php
         while($prices = $resultsprice->fetch_assoc()):
@@ -87,7 +86,7 @@ echo $navbar;
         endwhile;
         ?>
     </select><br><br>
-            <div class="formtitles">Type <br><select name="type" class="user-select round-button">>
+            <div class="formtitles">Type<br><select name="type" class="user-select round-button" style="margin:auto;">>
         <?php
         while ($types = $resultstype->fetch_assoc()) {
             if($types["price"] == $currentrow["price"]){
@@ -97,9 +96,9 @@ echo $navbar;
         }
         ?>
     </select><br><br>
-            <div class="formtitles">Description <br>
-                <textarea id="desc" name="desc" class="user-select round-button" maxlength=2500 style="min-height:200px;min-width:100%;max-width:100%;"><?php echo $currentrow["description"];?></textarea><br>
-                <br><button type="submit" class="round-button brown">Submit</button>
+            <div class="formtitles">Description<br>
+                <textarea id="desc" name="desc" class="user-select round-button" maxlength=2500 style="min-height:200px;min-width:100%;max-width:100%;text-align:left;font-family: 'DM Sans', sans-serif;padding:10px;margin:auto;font-size:100%;"><?php echo $currentrow["description"];?></textarea>
+                <br><br><button type="submit" class="round-button brown">Submit</button>
 </form>
 
 

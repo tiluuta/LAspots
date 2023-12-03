@@ -57,14 +57,13 @@ if(!$results) {
     exit();
 }
 
-echo "New title " . $_REQUEST['spot_name'] . " added. ";
-
-
+echo '<link rel="stylesheet" href="stylesheet.css">
+    <div class="message">
+        <h4>'. $_REQUEST["spot_name"] . ' has been uploaded. Redirecting to home in 2 seconds...</h4>
+    </div>';
 ?>
-
-<p align="center">Your spot has been uploaded!</p>
-
-
+<script>
+    setTimeout(function() { window.location='frontpage.php'; }, 2000);
+</script>
 </body>
-
 </html>
