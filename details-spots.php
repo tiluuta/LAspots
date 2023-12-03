@@ -231,6 +231,7 @@ echo $navbar;
                         $_SESSION['name'] = $currentrow['name'];
                     }
                 }
+
                 ?>
 
                 <h3>Send a spot to a friend!</h3>

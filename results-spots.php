@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <html>
 <head>
     <title>LA Spots!</title>
@@ -43,6 +47,7 @@
 </script>
 <body>
 <?php
+
     include './navbar.php';
     echo $navbar;
 ?>
@@ -69,6 +74,103 @@ if($mysql->connect_errno) {
     echo "db connection error : " . $mysql->connect_error;
     exit();
 }
+
+$typesql = "SELECT * FROM types";
+$typeresults = $mysql->query($typesql);
+$type_id = 0;
+if($_REQUEST['type'] != 'ALL'){
+while($type = $typeresults->fetch_assoc()){
+    if ($type['type'] == $_REQUEST['type']) {
+        $type_id = $type['type_id'];
+        }
+    }
+}
+else{
+    $type_id = 'NULL';
+}
+
+$interestsql = "SELECT * FROM interests";
+$interestsresults = $mysql->query($interestsql);
+$interest_id = 0;
+
+if($_REQUEST['interest'] != 'ALL'){
+    while($interest = $interestsresults->fetch_assoc()){
+            if ($interest['interest'] == $_REQUEST['interest']) {
+                $interest_id = $interest['interest_id'];
+            }
+    }
+}
+else{
+    $interest_id = 'NULL';
+}
+
+
+$pricesql = "SELECT * FROM prices";
+$pricesresults = $mysql->query($pricesql);
+$price_id = 0;
+if($_REQUEST['price'] != 'ALL'){
+while($price = $pricesresults->fetch_assoc()){
+        if ($price['price'] == $_REQUEST['price']) {
+            $price_id = $price['price_id'];
+        }
+    }
+
+}
+else{
+    $price_id = 'NULL';
+}
+
+
+
+
+$searchsql = "  INSERT INTO searches " .
+    "    (name_search, address_search, type_search_id, interest_search_id, price_search_id, username_search_id)" .
+    "    VALUES (" .
+    "	'" . $_REQUEST['name'] . "'," .
+    "	'" . $_REQUEST['address'] . "',";
+
+if($type_id == ''){
+$searchsql = $searchsql . "	'" . NULL . "'," ;
+}
+else{
+    $searchsql = $searchsql . "	'" . $type_id . "',";
+}
+
+if($interest_id == ''){
+    $searchsql = $searchsql . "	'" . NULL . "'," ;
+}
+else{
+    $searchsql = $searchsql . "	'" . $interest_id . "',";
+}
+
+if($price_id == ''){
+    $searchsql = $searchsql . "	'" . NULL . "'," ;
+}
+else{
+    $searchsql = $searchsql . "	'" . $price_id . "',";
+}
+
+if(!empty($_SESSION['username'])){
+    $searchsql = $searchsql . "	'" . $_SESSION['username'] .  ")";
+}
+else{
+    $searchsql = $searchsql . "	'" . $_SESSION['username'] .  ")";
+}
+
+
+
+echo $searchsql;
+
+$searchresults = $mysql->query($searchsql);
+
+
+if(!$searchresults) {
+    echo "ERROR! FORM info " . print_r($_REQUEST) . "<hr>";
+    echo "SQL: " . $$searchsql . "<hr>";
+    echo "db error: " . $mysql->error;
+    exit();
+}
+
 
 $sql = 	"SELECT * FROM spot_view2 WHERE 1=1";
 if(!empty($_REQUEST['name'])) {
