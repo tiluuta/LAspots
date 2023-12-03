@@ -99,7 +99,6 @@ echo $navbar;
     </select><br><br>
             <div class="formtitles">Description <br>
                 <textarea id="desc" name="desc" class="user-select round-button" maxlength=2500 style="min-height:200px;min-width:100%;max-width:100%;"><?php echo $currentrow["description"];?></textarea><br>
-                WARNING: DESC CHANGES ARE NOT IMPLEMENTED YET
                 <br><button type="submit" class="round-button brown">Submit</button>
 </form>
 

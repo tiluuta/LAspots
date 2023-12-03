@@ -31,6 +31,7 @@ if($mysql->connect_errno) {
 $sql = "UPDATE spots 
         SET name = '" . $_REQUEST["name"] . "',
         address = '" . $_REQUEST["address"] . "',
+        description = '" . addslashes($_REQUEST["desc"]) . "',
         photo_url = '" . $_REQUEST["photo"] . "',
         price_id = " . $_REQUEST["price"] . ",
 
