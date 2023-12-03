@@ -54,6 +54,7 @@
 <div class="margins">
 <?php
 
+
 if(empty($_REQUEST['type'])) {
     header("Location: search-spots.php");
 }
@@ -86,7 +87,7 @@ while($type = $typeresults->fetch_assoc()){
     }
 }
 else{
-    $type_id = 'NULL';
+    $type_id = '';
 }
 
 $interestsql = "SELECT * FROM interests";
@@ -101,7 +102,7 @@ if($_REQUEST['interest'] != 'ALL'){
     }
 }
 else{
-    $interest_id = 'NULL';
+    $interest_id = '';
 }
 
 
@@ -117,7 +118,7 @@ while($price = $pricesresults->fetch_assoc()){
 
 }
 else{
-    $price_id = 'NULL';
+    $price_id = '';
 }
 
 
@@ -144,17 +145,17 @@ else{
 }
 
 if($price_id == ''){
-    $searchsql = $searchsql . "	'" . NULL . "'," ;
+    $searchsql = $searchsql . "	'" . NULL .  "'," ;
 }
 else{
     $searchsql = $searchsql . "	'" . $price_id . "',";
 }
 
 if(!empty($_SESSION['username'])){
-    $searchsql = $searchsql . "	'" . $_SESSION['username'] .  ")";
+    $searchsql = $searchsql . "	'" . $_SESSION['username'] .  "')";
 }
 else{
-    $searchsql = $searchsql . "	'" . $_SESSION['username'] .  ")";
+    $searchsql = $searchsql . "	'" . NULL .  "')";
 }
 
 
