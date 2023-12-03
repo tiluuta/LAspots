@@ -268,13 +268,17 @@ echo "<br><br>";
 
         <div class="gallery-item">
 
-            <div class="image" style="background-image: url('<?php echo $counter . ")". $currentrow['photo_url'];
+            <?php
+            $counter;
 
             if($counter==$end)
-    	        { break; }
+            { break; }
 
-                $counter++;
+            $counter++;
 
+            ?>
+
+            <div class="image" style="background-image: url('<?php echo $currentrow['photo_url'];
 
             ?>')"></div>
 

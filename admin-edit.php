@@ -62,16 +62,17 @@ echo $navbar;
 <div>
     <h2 style="text-align:center;">edit your spot!</h2>
     <br><br>
-<form class="formcontainer" action="admin-update.php">
+<form class="login-box" action="admin-update.php">
     <input type="hidden" name="id" value="<?php echo $_REQUEST["id"]; ?>">
 
     <?php $currentrow = $results->fetch_assoc();?>
-    <br><div class="formtitles">Name of spot</div><input type="text" name="name" placeholder="name of spot" class="round-button" value="<?php echo $currentrow["name"];?>"><br>
+    <br><div class="formtitles">Name of spot</div><input type="text" name="name" placeholder="Name of Spot" class="round-button" style="width:100%;margin:auto;" value="<?php echo $currentrow["name"];?>"><br>
     <br>
-    <div class="formtitles">Address</div><input type="text" name="address" placeholder="address" class="round-button" value="<?php echo $currentrow["address"];?>">
+    <div class="formtitles">Address</div>
+        <input type="text" name="address" placeholder="Address" class="round-button" style="width:100%;margin:auto;" value="<?php echo $currentrow["address"];?>">
 
 
-    <div class="formtitles">Photo <value="<?php echo $currentrow["address"];?>"><br>
+    <div class="formtitles"><br></br>Photo <value="<?php echo $currentrow["address"];?>"><br>
     <?php echo '<img width="50%" src="' . $currentrow["photo_url"] . '"><br>' ?>
 
         <br><div class="formtitles">Price <br><select name="price" class="user-select round-button">>
@@ -95,8 +96,12 @@ echo $navbar;
         }
         ?>
     </select><br><br>
-
-    <button type="submit" class="round-button brown">Submit</button>
+            <div class="formtitles">Description <br>
+                <textarea id="desc" name="desc" placeholder="<?php echo $currentrow["description"];?>" class="user-select round-button" maxlength=2500 style="min-height:200px;min-width:100%;max-width:100%;">
+                    <?php echo $currentrow["description"];?>
+                </textarea><br>
+                WARNING: DESC CHANGES ARE NOT IMPLEMENTED YET
+                <br><button type="submit" class="round-button brown">Submit</button>
 </form>
 
 
