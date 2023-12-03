@@ -75,7 +75,7 @@ echo $navbar;
     <div class="formtitles"><br></br>Photo <value="<?php echo $currentrow["address"];?>"><br>
     <?php echo '<img width="50%" src="' . $currentrow["photo_url"] . '"><br>' ?>
 
-        <br><div class="formtitles">Price <br><select name="price" class="user-select round-button">>
+        <br><div class="formtitles">Price <br><select name="price" class="user-select round-button">
         <?php
         while($prices = $resultsprice->fetch_assoc()):
             if($currentrow["price"] == $prices["price"]){

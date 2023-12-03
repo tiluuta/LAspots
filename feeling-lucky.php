@@ -199,13 +199,13 @@ echo $navbar;
                     echo $currentrow["description"];
                     echo "<br><br><br>";
                     }
-                    if(!empty(($_SESSION['username']))) {
-                        if ($_SESSION['username'] == 'admin' && $_SESSION['password'] == 'pw'){
-                            ?>
-                            <a class="small-button green" style="padding:12px 30px 10px 30px;" href='admin-edit.php?id=<?php echo $_REQUEST["id"]?>'>Edit</a>
-                            <a class="small-button brown" style="padding:12px 30px 10px 30px;" href='admin-delete.php?id=<?php echo $_REQUEST["id"]?>'>Delete</a>
-                            <?php
-                        }}
+//                    if(!empty(($_SESSION['username']))) {
+//                        if ($_SESSION['username'] == 'admin' && $_SESSION['password'] == 'pw'){
+//                            ?>
+<!--                            <a class="small-button green" style="padding:12px 30px 10px 30px;" href='admin-edit.php?id=--><?php //echo $_REQUEST["id"]?><!--'>Edit</a>-->
+<!--                            <a class="small-button brown" style="padding:12px 30px 10px 30px;" href='admin-delete.php?id=--><?php //echo $_REQUEST["id"]?><!--'>Delete</a>-->
+<!--                            --><?php
+//                        }}
 
 
                     $spot = "SELECT * FROM spot_view2 WHERE name = '" . $name . "'";
