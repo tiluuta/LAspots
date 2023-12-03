@@ -72,10 +72,11 @@ echo $navbar;
         <input type="text" name="address" placeholder="Address" class="round-button" style="width:100%;margin:auto;" value="<?php echo $currentrow["address"];?>">
 
 
-    <div class="formtitles"><br></br>Photo <value="<?php echo $currentrow["address"];?>"><br>
+    <div class="formtitles"><br>Photo <value="<?php echo $currentrow["address"];?>"><br>
     <?php echo '<img width="50%" src="' . $currentrow["photo_url"] . '"><br>' ?>
+        <br><input type="text" name="photo" placeholder="Photo URL" class="round-button" style="width:100%;margin:auto;" value="<?php echo $currentrow["photo_url"];?>">
+        <br><br><div class="formtitles">Price <br><select name="price" class="user-select round-button">>
 
-        <br><div class="formtitles">Price <br><select name="price" class="user-select round-button">
         <?php
         while($prices = $resultsprice->fetch_assoc()):
             if($currentrow["price"] == $prices["price"]){
@@ -97,9 +98,7 @@ echo $navbar;
         ?>
     </select><br><br>
             <div class="formtitles">Description <br>
-                <textarea id="desc" name="desc" placeholder="<?php echo $currentrow["description"];?>" class="user-select round-button" maxlength=2500 style="min-height:200px;min-width:100%;max-width:100%;">
-                    <?php echo $currentrow["description"];?>
-                </textarea><br>
+                <textarea id="desc" name="desc" class="user-select round-button" maxlength=2500 style="min-height:200px;min-width:100%;max-width:100%;"><?php echo $currentrow["description"];?></textarea><br>
                 WARNING: DESC CHANGES ARE NOT IMPLEMENTED YET
                 <br><button type="submit" class="round-button brown">Submit</button>
 </form>
