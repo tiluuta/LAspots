@@ -29,7 +29,7 @@ if($mysql->connect_errno) {
 }
 
 $sql = "UPDATE spots 
-        SET name = '" . $_REQUEST["name"] . "',
+        SET name = '" . addslashes($_REQUEST["name"]) . "',
         address = '" . $_REQUEST["address"] . "',
         description = '" . addslashes($_REQUEST["desc"]) . "',
         photo_url = '" . $_REQUEST["photo"] . "',
