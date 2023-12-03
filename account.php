@@ -4,6 +4,7 @@ session_start();
 if(empty(($_SESSION['username']))) {
     if (empty(($_REQUEST['username'])) || empty(($_REQUEST['password']))) {
         header("Location: loginpage.php");
+        exit();
     }
 }
 
@@ -11,7 +12,6 @@ include './login.php';
 include './navbar.php';
 include './admin-frontpage.php';
 include './spotedit-panel.php';
-include './usercred-panel.php';
 echo $navbar;
 echo '
     <head>
@@ -71,6 +71,7 @@ if (!empty($_REQUEST['username']) && !empty($_REQUEST['password'])) {
         }
     endwhile;
 }
+
 if (empty($_SESSION['username'])){
     echo $errorpage;
 }
@@ -111,6 +112,7 @@ if (!empty($_SESSION['username'])){
     echo $accountpage;
 
     if ($_SESSION['username'] == 'admin' && $_SESSION['password'] == 'pw'){
+        include './usercred-panel.php';
         $sqluser = "SELECT * from users";
         $resultsuser = $mysql->query($sqluser);
         $sqlspots = "SELECT * from spots";
@@ -136,6 +138,7 @@ if (!empty($_SESSION['username'])){
 //        echo '</select> <a class="small-button green" style="padding:10px 30px 8px 30px;" href="upload-spots.php">Add</a> <button type="submit" class="small-button tan">Edit</button> <a class="small-button brown" style="padding:12px 30px 10px 30px;" href="admin-delete.php">Delete</a></form>';
 
     } else{
+        include './usercred-panel.php';
         echo '<div class="row" style="justify-content:center;margin-top:50px;margin-bottom:50px;">' . $userpanel . '</div>';
     }
 } else {
