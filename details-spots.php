@@ -193,10 +193,12 @@ echo $navbar;
 
                 $_SESSION["id"] = $_REQUEST["id"];
                 $_SESSION['name'] = '';
+                $address = urlencode('3780 Watt Way, Los Angeles, CA 90089');
 
                 while($currentrow = $results->fetch_assoc()) {
                     if($currentrow['spot_id'] == $_SESSION["id"]){
                         $_SESSION['name'] = $currentrow['name'];
+                        $address = urlencode($currentrow['address']);
                     }
                 }
 
@@ -211,10 +213,10 @@ echo $navbar;
             </div>
         </div>
         <div id="map">
-            <iframe width="100%" height="300px;" style="border:0;border-radius:20px" loading="lazy" allowfullscreen
+            <iframe width="100%" height="300px;" style="border:0;border-radius:10px" loading="lazy" allowfullscreen
                     src="https://www.google.com/maps/embed/v1/place?q=
                         <?php echo urlencode($_SESSION['name'])?>
-                    &key=AIzaSyDHe6Mce63P0AxkiYt2hqYjhmgeYjAO0pw"></iframe>
+                    &key=AIzaSyDHe6Mce63P0AxkiYt2hqYjhmgeYjAO0pw&zoom=10"></iframe>
         </div>
     </div>
 

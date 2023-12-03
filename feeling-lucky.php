@@ -208,10 +208,10 @@ echo $navbar;
                 </div>
             </div>
             <div id="map">
-                <iframe width="100%" height="300px;" style="border:0;border-radius:20px" loading="lazy" allowfullscreen
+                <iframe width="100%" height="300px;" style="border:0;border-radius:10px" loading="lazy" allowfullscreen
                         src="https://www.google.com/maps/embed/v1/place?q=
                         <?php echo urlencode($_SESSION['name'])?>
-                    &key=AIzaSyDHe6Mce63P0AxkiYt2hqYjhmgeYjAO0pw"></iframe>
+                    &key=AIzaSyDHe6Mce63P0AxkiYt2hqYjhmgeYjAO0pw&zoom=10"></iframe>
             </div>
         </div>
 
