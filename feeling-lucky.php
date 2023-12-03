@@ -140,6 +140,7 @@ echo $navbar;
             while($currentrow = $results->fetch_assoc()){
             $address = urlencode($currentrow["address"]);
             $name = $currentrow["name"];
+            $spot_id = $currentrow["spot_id"];
             echo "<h1 class='spotName'>" . $currentrow["name"] . "</h1>";
             ?>
             <div id="contentBox">
@@ -171,13 +172,13 @@ echo $navbar;
                     if(!empty(($_SESSION['username']))) {
                     if ($_SESSION['username'] == 'admin' && $_SESSION['password'] == 'pw'){
                     ?>
-                    <a class="small-button green" style="padding:12px 30px 10px 30px;" href='admin-edit.php?id=<?php echo $_REQUEST["id"]?>'>Edit</a>
-                    <a class="small-button brown" style="padding:12px 30px 10px 30px;" href='admin-delete.php?id=<?php echo $_REQUEST["id"]?>'>Delete</a>
+                    <a class="small-button green" style="padding:12px 30px 10px 30px;" href='admin-edit.php?id=<?php echo $spot_id?>'>Edit</a>
+                    <a class="small-button brown" style="padding:12px 30px 10px 30px;" href='admin-delete.php?id=<?php echo $spot_id?>'>Delete</a>
                     <?php
                     }
                     }
 
-                    $spot = "SELECT * FROM spot_view2 WHERE name = '" . $name . "'";
+                    $spot = "SELECT * FROM spot_view2 WHERE name = '" . addslashes($name) . "'";
                     $spotresults = $mysql->query($spot);
 
                     if(!$spotresults){
