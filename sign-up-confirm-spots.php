@@ -43,18 +43,14 @@ if(!$results) {
     exit();
 }
 
-echo "New user " . $_REQUEST['username'] . " added. ";
-
-
+echo '<link rel="stylesheet" href="stylesheet.css">
+    <div class="message">
+        <h4>'. $_REQUEST["username"] . ' user has been added. Redirecting to home in 2 seconds...</h4>
+    </div>';
 ?>
-
-<p align="center">Your spot has been uploaded!</p>
-
-
-
-
-
-
+<script>
+    setTimeout(function() { window.location='frontpage.php'; }, 2000);
+</script>
 </body>
 
 </html>
