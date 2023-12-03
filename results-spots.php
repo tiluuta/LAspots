@@ -166,7 +166,7 @@ $searchresults = $mysql->query($searchsql);
 
 if(!$searchresults) {
     echo "ERROR! FORM info " . print_r($_REQUEST) . "<hr>";
-    echo "SQL: " . $$searchsql . "<hr>";
+    echo "SQL: " . $searchsql . "<hr>";
     echo "db error: " . $mysql->error;
     exit();
 }
