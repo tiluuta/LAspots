@@ -1,5 +1,11 @@
 <?php
     session_start();
+
+    if (!empty($_SESSION['username'])){
+        if($_SESSION['username'] == 'admin') {
+            header("Location: results-spots-admin.php");
+        }
+    }
 ?>
 
 <html>
@@ -53,7 +59,6 @@
 ?>
 <div class="margins">
 <?php
-
 
 if(empty($_REQUEST['type'])) {
     header("Location: search-spots.php");
@@ -121,46 +126,44 @@ else{
     $price_id = '';
 }
 
+$userssql = "SELECT * FROM users";
+$usersresults = $mysql->query($userssql);
+$users_id = 0;
+if(!empty($_SESSION['username'])){
+    while($user = $usersresults->fetch_assoc()){
+        if ($user['username'] == $_SESSION['username']) {
+            $user_id = $user['user_id'];
+        }
+    }
 
+}
+else{
+    $user_id = '';
+}
 
-
+//RECORD SEARCH QUERY
 $searchsql = "  INSERT INTO searches " .
     "    (name_search, address_search, type_search_id, interest_search_id, price_search_id, username_search_id)" .
     "    VALUES (" .
     "	'" . $_REQUEST['name'] . "'," .
     "	'" . $_REQUEST['address'] . "',";
 
-if($type_id == ''){
-$searchsql = $searchsql . "	'" . NULL . "'," ;
-}
-else{
-    $searchsql = $searchsql . "	'" . $type_id . "',";
-}
+$type_id = !empty($type_id) ? "'$type_id'" : "NULL";
+$interest_id = !empty($interest_id) ? "'$interest_id'" : "NULL";
+$price_id = !empty($price_id) ? "'$price_id'" : "NULL";
+$user_id = !empty($user_id) ? "'$user_id'" : "NULL";
 
-if($interest_id == ''){
-    $searchsql = $searchsql . "	'" . NULL . "'," ;
-}
-else{
-    $searchsql = $searchsql . "	'" . $interest_id . "',";
-}
+    $searchsql = $searchsql . "	" . $type_id . "," ;
 
-if($price_id == ''){
-    $searchsql = $searchsql . "	'" . NULL .  "'," ;
-}
-else{
-    $searchsql = $searchsql . "	'" . $price_id . "',";
-}
+    $searchsql = $searchsql . "	" . $interest_id . ",";
 
-if(!empty($_SESSION['username'])){
-    $searchsql = $searchsql . "	'" . $_SESSION['username'] .  "')";
-}
-else{
-    $searchsql = $searchsql . "	'" . NULL .  "')";
-}
+    $searchsql = $searchsql . "	" . $price_id . ",";
+
+    $searchsql = $searchsql . "	" . $user_id .  ");";
 
 
 
-echo $searchsql;
+//echo $searchsql;
 
 $searchresults = $mysql->query($searchsql);
 
