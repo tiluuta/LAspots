@@ -48,7 +48,7 @@
         </div>
         <br>
         <div>
-            <button class="green round-button"><a href="details-spots.php?id=<?php echo "SELECT spot_id FROM spot_view2 ORDER BY RAND () LIMIT 1" ?>">Randomize Spot</a></button>
+            <button class="green round-button"><a href="feeling-lucky.php">Randomize Spot</a></button>
 <!--            details-spots.php?id=-->
         </div>
 

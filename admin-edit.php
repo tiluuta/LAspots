@@ -76,6 +76,7 @@ echo $navbar;
     <?php echo '<img width="50%" src="' . $currentrow["photo_url"] . '"><br>' ?>
         <br><input type="text" name="photo" placeholder="Photo URL" class="round-button" style="width:100%;margin:auto;" value="<?php echo $currentrow["photo_url"];?>">
         <br><br><div class="formtitles">Price <br><select name="price" class="user-select round-button">>
+
         <?php
         while($prices = $resultsprice->fetch_assoc()):
             if($currentrow["price"] == $prices["price"]){
