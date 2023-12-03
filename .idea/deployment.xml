@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+<<<<<<< Updated upstream
   <component name="PublishConfigData" autoUpload="Always" serverName="Acad276server" filePermissions="493" folderPermissions="493" remoteFilesAllowedToDisappearOnAutoupload="false" confirmBeforeUploading="false">
     <option name="confirmBeforeUploading" value="false" />
     <serverData>
@@ -7,6 +8,15 @@
         <serverdata>
           <mappings>
             <mapping deploy="/public_html/LASpots/LASpots" local="$PROJECT_DIR$" web="/LASpots/LASpots" />
+=======
+  <component name="PublishConfigData" autoUpload="Always" serverName="acad276server" filePermissions="493" folderPermissions="493" remoteFilesAllowedToDisappearOnAutoupload="false" confirmBeforeUploading="false">
+    <option name="confirmBeforeUploading" value="false" />
+    <serverData>
+      <paths name="acad276server">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/public_html/acad276/LA_Spots/Untitled" local="$PROJECT_DIR$" web="/acad276/LA_Spots/Untitled" />
+>>>>>>> Stashed changes
             <mapping local="" />
           </mappings>
         </serverdata>

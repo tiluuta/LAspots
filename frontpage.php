@@ -5,11 +5,11 @@
 ?>
 <html>
 <head>
-    <title>Bruh LA Spots</title>
+    <title>LA Spots</title>
     <link rel="icon" type="image/x-icon" href="Assets/favicon.ico">
     <meta charset="UTF-8">
     <link rel="stylesheet" href="stylesheet.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="przonnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
     <!-- Google tag (gtag.js) -->
@@ -48,7 +48,7 @@
         </div>
         <br>
         <div>
-            <button class="green round-button"><a href="feeling-lucky.php">Randomize Spot</a></button>
+            <button class="green round-button"><a href="details-spots.php?id=<?php echo "SELECT spot_id FROM spot_view2 ORDER BY RAND () LIMIT 1" ?>">Randomize Spot</a></button>
 <!--            details-spots.php?id=-->
         </div>
 
