@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <html>
 <head>
     <title>LA Spots</title>
@@ -167,6 +171,7 @@ echo $navbar;
             $address = '';
             while($currentrow = $results->fetch_assoc()){
             $address = urlencode($currentrow["address"]);
+            $name = $currentrow["name"];
             echo "<h1 class='spotName'>" . $currentrow["name"] . "</h1>";
             ?>
             <div id="contentBox">
@@ -203,15 +208,26 @@ echo $navbar;
                         }}
 
 
-                    $_SESSION["id"] = $_REQUEST["id"];
+                    $spot = "SELECT * FROM spot_view2 WHERE name = '" . $name . "'";
+                    $spotresults = $mysql->query($spot);
 
-                    while($currentrow = $results->fetch_assoc()) {
-                        if($currentrow['spot_id'] == $_REQUEST["id"]){
+                    if(!$spotresults){
+                        echo "SQL ERROR:" . $mysql->error;
+                        echo "<hr>" . $spot;
+                        exit();
+                    }
+
+                    while ($currentrow = $spotresults->fetch_assoc()) {
+                        $_SESSION["id"] = $currentrow["spot_id"];
+                        $_SESSION['name'] = $currentrow['name'];
+                    }
+
+                    /*while($currentrow = $results->fetch_assoc()) {
+                        if($currentrow['spot_id'] == $_SESSION["id"]){
                             $_SESSION['name'] = $currentrow['name'];
                         }
-                    }
-                    echo  $_SESSION['name'];
-                    echo    $_SESSION["id"];
+                    }*/
+
                     ?>
 
                     <h3>Send a spot to a friend!</h3>

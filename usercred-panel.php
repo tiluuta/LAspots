@@ -55,7 +55,7 @@ while ($users = $resultsuser->fetch_assoc()) {
 $adminpanel = $adminpanel . '</select><br>
                 <input type="text" placeholder="New username" name="new_user"></div>
             <div class="input">
-                <input type="text" placeholder="New password" name="new_pass"><br><br></div>
+                <input type="text" required=1 placeholder="New password" name="new_pass"><br><br></div>
             <button type="submit" class="round-button beige">Edit Credentials</button><br><br>
             <a class="round-button brown" href="sign-up-spots.php">Create New Account</a>
             <br><br>
