@@ -44,8 +44,14 @@ if(!$results) {
     exit();
 }
 
-echo "SQL: " . $sql . "<hr>";
-echo "<hr>" . "The spot has been deleted."
+echo '<link rel="stylesheet" href="stylesheet.css">
+    <div style="text-align:center;">
+        <h4>The spot has been deleted. Redirecting to home in 2 seconds...</h4>
+    </div>';
+
 ?>
+<script>
+    setTimeout(function() { window.location='frontpage.php'; }, 2000);
+</script>
 
 
