@@ -40,9 +40,9 @@ if (empty(trim($_REQUEST['spot_name']))) {
 $sql = "  INSERT INTO spots " .
     "    (name, address, description, type_id, interest_id, price_id, photo_url)" .
     "    VALUES (" .
-    "	'" . $_REQUEST['spot_name'] . "'," .
+    "	'" . addslashes($_REQUEST['spot_name']) . "'," .
     "	'" . $_REQUEST['spot_address'] . "'," .
-    "	'" . $_REQUEST['spot_description'] . "'," .
+    "	'" . addslashes($_REQUEST['spot_description']) . "'," .
     "	'" . $_REQUEST['spot_type'] . "'," .
     "	'" . $_REQUEST['spot_interest'] . "'," .
     "	'" . $_REQUEST['spot_price'] . "'," .
