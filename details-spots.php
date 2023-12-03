@@ -1,6 +1,7 @@
 <?php
 session_start();
 ?>
+
 <html>
 <head>
     <title>LA Spots</title>
@@ -260,6 +261,7 @@ echo $navbar;
             }
 
             ?>
+
             <script>
                 var _coords = <?php echo json_encode($dataPhp); ?>;
                 var map;
