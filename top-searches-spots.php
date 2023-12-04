@@ -3,6 +3,7 @@ session_start();
 include './navbar.php';
 ?>
 
+
 <html>
 <head>
     <title>LA Spots</title>
@@ -25,6 +26,11 @@ include './navbar.php';
 <body>
 <?php
 echo $navbar;
+?>
+<h1>Search Rankings</h1>
+<h3>Top Interest Searches!</h3>
+<?php
+
 ?>
 
 <?php
@@ -62,7 +68,8 @@ if(!$results){
 //    echo "<hr>";
 
 
-?>
+
+
 ?>
 
 
