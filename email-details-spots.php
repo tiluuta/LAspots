@@ -44,7 +44,7 @@ echo $navbar;
 if(!empty($_REQUEST["email"]))
 {
     $to = $_REQUEST["email"];
-    $subject = "Message from LA spots search site";
+    $subject = "Message from LA Spots";
     $message = "Hi! A friend recommended this spot to you! ";
     $from = "sandmanl@webdev.iyaserver.com";
     $message .= "Spot: " . $_SESSION['name'];
