@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" autoUpload="Always" serverName="acad275server">
+  <component name="PublishConfigData" autoUpload="Always" serverName="Acad276server">
     <serverData>
-      <paths name="acad275server">
+      <paths name="Acad276server">
         <serverdata>
           <mappings>
-            <mapping deploy="/public_html/acad276/LA-spots/LAspots" local="$PROJECT_DIR$" web="/acad276/LA-spots/LAspots" />
+            <mapping deploy="/public_html/LASpots/LASpots" local="$PROJECT_DIR$" web="/LASpots/LASpots" />
+            <mapping local="" />
           </mappings>
         </serverdata>
       </paths>

@@ -43,6 +43,7 @@ $resultsuser = $mysql->query($sqluser);
 <head>
     <title>Edit Your Spot!</title>
     <link rel="icon" type="image/x-icon" href="Assets/favicon.ico">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-QL7D4BF2WZ"></script>
