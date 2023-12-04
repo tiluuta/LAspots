@@ -35,12 +35,27 @@ if(!$results){
 <head>
     <title>Email Sent</title>
     <link rel="icon" type="image/x-icon" href="Assets/favicon.ico">
+    <style>
+        #emailBox{
+            float: left;
+            text-align: left;
+            width: 35%;
+            height:fit-content;
+            /*border: 1px red solid;*/
+            margin-left: 5%;
+            font-size: 20pt;
+            padding-left: 1%;
+        }
+    </style>
 </head>
 <body>
+
 <?php
 include './navbar.php';
 echo $navbar;
-
+?>
+<div id="emailBox">
+<?php
 if(!empty($_REQUEST["email"]))
 {
     $to = $_REQUEST["email"];
@@ -53,14 +68,16 @@ if(!empty($_REQUEST["email"]))
 
     $test = mail($to,$subject,$message,$from);
 
-
     if ($test==1)
     {
-        echo "Spot sent to " . $_REQUEST["email"] . "!";
-        exit();
+        echo "<br> Spot sent to " . $_REQUEST["email"] . "!";
     }
 }
+else {
+    echo "<br> Please write an email!";
+}
 ?>
+</div>
 </body>
 
 

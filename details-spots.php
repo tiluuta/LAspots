@@ -207,7 +207,7 @@ echo $navbar;
                 <h3>Send a spot to a friend!</h3>
                 <form action="" method="post">
                     <h4>Email:</h4> <input type="text" name="email" /><br />
-                    <input type="submit" value='Send Email' />
+                    <input type="submit"  value='Send Email' />
 
                 </form>
             </div>
