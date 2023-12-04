@@ -125,7 +125,7 @@ if (!empty($_SESSION['username'])){
         echo '<div class="item">' . $adminpanel . "</div>";
         echo '</div>';
 
-
+        /* DATA VIZ */
         $sql = "SELECT DISTINCT interest, COUNT(interest) as amount FROM interest_search_view GROUP BY interest";
 
         $interest_searches = $mysql->query($sql);
@@ -153,6 +153,7 @@ if (!empty($_SESSION['username'])){
         }
 
         ?>
+            <h1>Total User Searches</h1>
             <div class="row margins">
                 <div class="item" style="width:50%;">
                     <canvas id="interestSearch" width="200px;"></canvas>
@@ -251,8 +252,6 @@ if (!empty($_SESSION['username'])){
         </script>
 
 
-
-
         <?php
 
 
@@ -273,6 +272,140 @@ if (!empty($_SESSION['username'])){
     } else{
         include './usercred-panel.php';
         echo '<div class="row" style="justify-content:center;margin-top:50px;margin-bottom:50px;">' . $userpanel . '</div>';
+
+/* DATA VIZ */
+$sql = "SELECT DISTINCT interest, COUNT(interest) as amount FROM interest_search_view, username_search_view WHERE interest_search_view.search_id = username_search_view.search_id AND username = '" . $_SESSION['username'] . "' GROUP BY interest";
+
+
+$interest_searches = $mysql->query($sql);
+
+        if(!$interest_searches) {
+            echo "<hr>Your SQL:<br> " . $sql . "<br><br>";
+            echo "SQL Error: " . $mysql->error . "<hr>";
+            exit();
+        }
+
+$interests = [];
+$interest_freqs = [];
+$i = 0;
+while ($currentrow = $interest_searches->fetch_assoc()) {
+    $interests[$i] = $currentrow['interest'];
+    $interest_freqs[$i] = $currentrow['amount'];
+    $i++;
+}
+
+$sql = "SELECT DISTINCT type, COUNT(type) as amount FROM type_search_view, username_search_view WHERE type_search_view.search_id = username_search_view.search_id AND username = '" . $_SESSION['username'] . "' GROUP BY type";
+
+$type_searches = $mysql->query($sql);
+
+$types = [];
+$type_freqs = [];
+$i = 0;
+while ($currentrow = $type_searches->fetch_assoc()) {
+    $types[$i] = $currentrow['type'];
+    $type_freqs[$i] = $currentrow['amount'];
+    $i++;
+}
+
+?>
+        <h1>My Searches</h1>
+        <div class="row margins">
+    <div class="item" style="width:50%;">
+        <canvas id="interestSearch" width="200px;"></canvas>
+    </div>
+    <div class="item" style="width:50%;">
+        <canvas id="typeSearch" width="200px;"></canvas>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+    const ctx1 = document.getElementById('interestSearch');
+
+    new Chart(ctx1, {
+        type: 'bar',
+        data: {
+            labels: [<?php foreach($interests as $interest) { echo "'" .$interest . "', "; } ?>],
+            datasets: [{
+                label: '# of Searches per Interest',
+                data: [<?php foreach($interest_freqs as $freq) { echo "'" .$freq . "', "; } ?>],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(255, 159, 64, 0.2)',
+                    'rgba(255, 205, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(201, 203, 207, 0.2)',
+                    'rgba(125,122,122,0.2)'
+
+                ],
+                borderColor: [
+                    'rgb(255, 99, 132)',
+                    'rgb(255, 159, 64)',
+                    'rgb(255, 205, 86)',
+                    'rgb(75, 192, 192)',
+                    'rgb(54, 162, 235)',
+                    'rgb(153, 102, 255)',
+                    'rgb(201, 203, 207)',
+                    'rgb(146,147,150)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+    const ctx2 = document.getElementById('typeSearch');
+
+    new Chart(ctx2, {
+        type: 'bar',
+        data: {
+            labels: [<?php foreach($types as $type) { echo "'" .$type . "', "; } ?>],
+            datasets: [{
+                label: '# of Searches per Type',
+                data: [<?php foreach($type_freqs as $freq) { echo "'" .$freq . "', "; } ?>],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(255, 159, 64, 0.2)',
+                    'rgba(255, 205, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(201, 203, 207, 0.2)',
+                    'rgba(125,122,122,0.2)'
+                ],
+                borderColor: [
+                    'rgb(255, 99, 132)',
+                    'rgb(255, 159, 64)',
+                    'rgb(255, 205, 86)',
+                    'rgb(75, 192, 192)',
+                    'rgb(54, 162, 235)',
+                    'rgb(153, 102, 255)',
+                    'rgb(201, 203, 207)',
+                    'rgb(146,147,150)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+
+            }
+        }
+    });
+</script>
+<?php
     }
 } else {
     echo $login;
