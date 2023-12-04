@@ -145,7 +145,7 @@ else{
 $searchsql = "  INSERT INTO searches " .
     "    (name_search, address_search, type_search_id, interest_search_id, price_search_id, username_search_id)" .
     "    VALUES (" .
-    "	'" . $_REQUEST['name'] . "'," .
+    "	'" . addslashes($_REQUEST["name"]) . "'," .
     "	'" . $_REQUEST['address'] . "',";
 
 $type_id = !empty($type_id) ? "'$type_id'" : "NULL";
@@ -175,10 +175,9 @@ if(!$searchresults) {
     exit();
 }
 
-
 $sql = 	"SELECT * FROM spot_view2 WHERE 1=1";
 if(!empty($_REQUEST['name'])) {
-    $sql .= " AND name LIKE '%" . $_REQUEST["name"] . "%'";
+    $sql .= " AND name LIKE '%" . addslashes($_REQUEST["name"]) . "%'";
 }
 if(!empty($_REQUEST['address'])) {
     $sql .= " AND address LIKE '%" . $_REQUEST["address"] . "%'";
@@ -269,17 +268,12 @@ echo "<br><br>";
 </div>
     <?php
     while($currentrow = $results->fetch_assoc()): ?>
-
         <div class="gallery-item">
-
             <?php
             $counter;
 
-            if($counter==$end)
-            { break; }
-
-            $counter++;
-
+            if($counter!=$end)
+            { $counter++; }
             ?>
 
             <div class="image" style="background-image: url('<?php echo $currentrow['photo_url'];
@@ -288,7 +282,7 @@ echo "<br><br>";
 
             <a class="details" href="details-spots.php?id=<?php echo $currentrow['spot_id']?>">
                 <div class="overlay">
-                <h3 class="location-tag">&#128205;<?php echo utf8_decode($currentrow['name']); ?></h3>
+                <h3 class="location-tag">&#128205;<?php echo ($currentrow['name']); ?></h3>
                 <p class="address"><?php echo $currentrow['address']; ?></p>
                 <p><em><?php echo $currentrow['type']; ?></em></p>
                 <p><?php echo $currentrow['interest']; ?></p>

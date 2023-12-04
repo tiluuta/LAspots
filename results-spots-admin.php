@@ -52,7 +52,7 @@ if($mysql->connect_errno) {
 
 $sql = 	"SELECT * FROM spot_view2 WHERE 1=1";
 if(!empty($_REQUEST['name'])) {
-    $sql .= " AND name LIKE '%" . $_REQUEST["name"] . "%'";
+    $sql .= " AND name LIKE '%" . addslashes($_REQUEST["name"]) . "%'";
 }
 if(!empty($_REQUEST['address'])) {
     $sql .= " AND address LIKE '%" . $_REQUEST["address"] . "%'";
