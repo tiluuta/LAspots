@@ -29,9 +29,8 @@ echo $navbar;
 ?>
 <h1>Search Rankings</h1>
 <h3>Top Interest Searches!</h3>
-<?php
+<script type="text/javascript" src="bar-chart.js"></script>
 
-?>
 
 <?php
 $host = "webdev.iyaserver.com";
