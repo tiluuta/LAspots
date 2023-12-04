@@ -12,7 +12,7 @@
 <head>
     <title>LA Spots!</title>
     <link rel="icon" type="image/x-icon" href="Assets/favicon.ico">
-    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link rel="stylesheet" href="stylesheet.css">
     <style>
         #bigPrevNextBox{
