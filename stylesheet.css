@@ -5,6 +5,11 @@
     font-style: normal;
     font-weight: normal;
 }
+@media only screen and (max-width: 600px) {
+    .row{
+        flex-direction:column;
+    }
+}
 /*
 COLOR CODES:
 mint green: #AFD3A4

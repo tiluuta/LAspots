@@ -15,6 +15,13 @@
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-QL7D4BF2WZ"></script>
 </head>
+<style>
+    @media only screen and (max-width: 600px) {
+        .row{
+            flex-direction:column;
+        }
+    }
+</style>
 <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -32,14 +39,14 @@
 <div class="row">
 
     <!--- EDIT ID="spotlight" to change to random spot --->
-    <div id="spotlight" class="item" style="width:34.5%;position:relative;">
+    <div id="spotlight" class="item" style="max-width:460px;position:relative;">
         <a href="details-spots.php?id=75">
         <img class="frontpage-img" src="Assets/LIES479-046.jpg">
         <a class="location-tag">&#128205; The Wallflower, Venice</a>
         </a>
     </div>
 
-    <div class="item" style="width:65%;">
+    <div class="item" style="max-width:65%;">
         <h1>LA Spots</h1>
         <h4 style="width:60%;">Experience the city of angels differently.
             Find your favorite hidden gems that won’t pop up in a simple internet search.</h4>

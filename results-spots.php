@@ -280,12 +280,12 @@ echo "<br><br>";
         <?php
 
         if($start != 1) {
-            echo "<a href='results-spots.php?start=" . ($start - 25) . $searchstring .
+            echo "<a href='results-spots.php?start=" . ($start - 26) . $searchstring .
                 "'> Previous Spots</a> |  ";
         }
 
         if($end < $results->num_rows) {
-            echo "<a href='results-spots.php?start=" . ($start + 25) . $searchstring .
+            echo "<a href='results-spots.php?start=" . ($start + 26) . $searchstring .
                 "'>Next Spots</a><br><br>";
         }
 
@@ -295,12 +295,6 @@ echo "<br><br>";
     <?php
     while($currentrow = $results->fetch_assoc()): ?>
         <div class="gallery-item">
-            <?php
-            $counter;
-
-            if($counter!=$end)
-            { $counter++; }
-            ?>
 
             <div class="image" style="background-image: url('<?php echo $currentrow['photo_url'];
 
@@ -317,6 +311,15 @@ echo "<br><br>";
             </a>
 
         </div>
+
+        <?php
+        $counter;
+
+        if($counter==$end)
+        { break; }
+
+        $counter++;
+        ?>
 
     <?php endwhile; ?>
     <div id="bigPrevNextBox2">
