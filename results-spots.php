@@ -1,11 +1,6 @@
 <?php
     session_start();
 
-    if (!empty($_SESSION['username'])){
-        if($_SESSION['username'] == 'admin') {
-            header("Location: results-spots-admin.php");
-        }
-    }
 ?>
 
 <html>
